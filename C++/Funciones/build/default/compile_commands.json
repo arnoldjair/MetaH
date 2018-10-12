@@ -1,0 +1,25 @@
+[
+{
+  "directory": "/home/equipo/Desarrollo/ElectivaMetaheuristicas/build/default",
+  "command": "/usr/bin/c++     -O3 -DNDEBUG   -o CMakeFiles/MetaHeuristicas.dir/MetaHeuristicas.cpp.o -c /home/equipo/Desarrollo/ElectivaMetaheuristicas/MetaHeuristicas.cpp",
+  "file": "/home/equipo/Desarrollo/ElectivaMetaheuristicas/MetaHeuristicas.cpp"
+},
+
+{
+  "directory": "/home/equipo/Desarrollo/ElectivaMetaheuristicas/build/default",
+  "command": "/usr/bin/c++     -O3 -DNDEBUG   -o CMakeFiles/MetaHeuristicas.dir/Function.cpp.o -c /home/equipo/Desarrollo/ElectivaMetaheuristicas/Function.cpp",
+  "file": "/home/equipo/Desarrollo/ElectivaMetaheuristicas/Function.cpp"
+},
+
+{
+  "directory": "/home/equipo/Desarrollo/ElectivaMetaheuristicas/build/default",
+  "command": "/usr/bin/c++     -O3 -DNDEBUG   -o CMakeFiles/MetaHeuristicas.dir/Sphere.cpp.o -c /home/equipo/Desarrollo/ElectivaMetaheuristicas/Sphere.cpp",
+  "file": "/home/equipo/Desarrollo/ElectivaMetaheuristicas/Sphere.cpp"
+},
+
+{
+  "directory": "/home/equipo/Desarrollo/ElectivaMetaheuristicas/build/default",
+  "command": "/usr/bin/c++     -O3 -DNDEBUG   -o CMakeFiles/MetaHeuristicas.dir/Record.cpp.o -c /home/equipo/Desarrollo/ElectivaMetaheuristicas/Record.cpp",
+  "file": "/home/equipo/Desarrollo/ElectivaMetaheuristicas/Record.cpp"
+}
+]
