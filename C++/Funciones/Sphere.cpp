@@ -5,7 +5,9 @@
  *      Author: Arnold Jair Jiménez Vargas <arnoldjair at gmail dot com>
  */
 
-#include <math.h>
+#define _USE_MATH_DEFINES
+
+#include <cmath>
 #include <iostream>
 #include "Sphere.h"
 
