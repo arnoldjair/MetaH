@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+#Generated folders
+hc/
+hc_random_restarts/
+*build*

@@ -1,1 +1,0 @@
-./Debug/main.c.o ./Debug/esfera.c.o ./Debug/ackley.c.o ./Debug/algoritmo.c.o ./Debug/hill_climbing.c.o ./Debug/griewank.c.o ./Debug/rastrigin.c.o ./Debug/schwefel.c.o ./Debug/r_restarts.c.o
