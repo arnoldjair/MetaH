@@ -1,3 +1,0 @@
-/home/equipo/Desarrollo/ElectivaMetaheuristicas/build/default/CMakeFiles/rebuild_cache.dir
-/home/equipo/Desarrollo/ElectivaMetaheuristicas/build/default/CMakeFiles/edit_cache.dir
-/home/equipo/Desarrollo/ElectivaMetaheuristicas/build/default/CMakeFiles/MetaHeuristicas.dir

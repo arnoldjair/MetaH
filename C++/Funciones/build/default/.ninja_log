@@ -1,9 +1,0 @@
-# ninja log v5
-0	265	0	CMakeFiles/MetaHeuristicas.dir/Function.cpp.o	a7b8e24aed57edb9
-1	278	0	CMakeFiles/MetaHeuristicas.dir/Sphere.cpp.o	d1b809c38655f1e3
-2	297	0	CMakeFiles/MetaHeuristicas.dir/Record.cpp.o	66ec7e01053148b9
-0	456	0	CMakeFiles/MetaHeuristicas.dir/MetaHeuristicas.cpp.o	cc80bb03f3850f3d
-457	512	0	MetaHeuristicas	e0bd5a4f357acdd
-0	3	0	clean	a7c70eacb11a5051
-0	4	0	clean	a7c70eacb11a5051
-0	2	0	clean	a7c70eacb11a5051
