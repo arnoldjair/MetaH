@@ -25,7 +25,7 @@ double Griewank::evaluate(Record& record) {
 
   int i = 0;
 
-  for (i = 0; i < record.getDimentionality(); i++) {
+  for (i = 0; i < record.getDimensionality(); i++) {
     sum_squares = sum_squares + pow(record.getData()[i], 2);
     product = product * cos(record.getData()[i] / sqrt(i + 1));
   }

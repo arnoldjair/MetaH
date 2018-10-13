@@ -24,11 +24,11 @@ double Schwefel::evaluate(Record& record) {
 
   int i = 0;
 
-  for (i = 0; i < record.getDimentionality(); i++) {
+  for (i = 0; i < record.getDimensionality(); i++) {
     sum = sum + record.getData()[i] * sin(sqrt(fabs(record.getData()[i])));
   }
 
-  ret = 418.9829 * record.getDimentionality() - sum;
+  ret = 418.9829 * record.getDimensionality() - sum;
 
   return ret;
 }

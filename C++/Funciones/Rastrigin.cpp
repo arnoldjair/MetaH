@@ -25,12 +25,12 @@ double Rastrigin::evaluate(Record& record) {
 
   double sum = 0;
 
-  for (i = 0; i < record.getDimentionality(); i++) {
+  for (i = 0; i < record.getDimensionality(); i++) {
     sum = sum + pow((double) record.getData()[i], 2)
         - 10 * cos(2 * M_PI * (double) record.getData()[i]);
   }
 
-  ret = 10 * record.getDimentionality() + sum;
+  ret = 10 * record.getDimensionality() + sum;
 
   return ret;
 }

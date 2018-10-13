@@ -20,7 +20,7 @@ Sphere::~Sphere() {
 
 double Sphere::evaluate(Record& record) {
   double ret = 0;
-  for (int i = 0; i < record.getDimentionality(); ++i) {
+  for (int i = 0; i < record.getDimensionality(); ++i) {
     ret += pow(record.getData()[i], 2);
   }
   return sqrt(ret);

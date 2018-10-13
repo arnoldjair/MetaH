@@ -26,13 +26,13 @@ double Ackley::evaluate(Record& record) {
 
   int i = 0;
 
-  for (i = 0; i < record.getDimentionality(); i++) {
+  for (i = 0; i < record.getDimensionality(); i++) {
     sum_x = sum_x + pow(record.getData()[i], 2);
     sum_cos = sum_cos + cos(2 * M_PI * record.getData()[i]);
   }
 
-  ret = -20 * exp(-0.2 * sqrt(sum_x / record.getDimentionality()))
-      - exp(sum_cos / record.getDimentionality()) + 20 + exp(1);
+  ret = -20 * exp(-0.2 * sqrt(sum_x / record.getDimensionality()))
+      - exp(sum_cos / record.getDimensionality()) + 20 + exp(1);
 
   return ret;
 }

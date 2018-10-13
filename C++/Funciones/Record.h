@@ -10,20 +10,22 @@
 
 #include <vector>
 #include <cstdlib>
+#include <string>
+#include "Utils.h"
 
 class Record {
  public:
   Record();
-  Record(int dimentionality, double lower, double upper);
+  Record(int dimensionality, double lower, double upper, double r);
   virtual ~Record();
 
-  static Record* randomRecord(int dimentionality, double lower,
-                                    double upper);
+  static Record* randomRecord(int dimensionality, double lower, double upper,
+                              double r);
 
   const std::vector<double>& getData() const;
   void setData(const std::vector<double>& data);
-  int getDimentionality() const;
-  void setDimentionality(int dimentionality);
+  int getDimensionality() const;
+  void setDimensionality(int dimensionality);
   double getLower() const;
   void setLower(double lower);
   double getUpper() const;
@@ -31,10 +33,14 @@ class Record {
   double getFitness() const;
   void setFitness(double fitness);
 
+  Record* tweak();
+  std::string toString();
+
  private:
-  int dimentionality;
+  int dimensionality;
   double lower;
   double upper;
+  double r;
   double fitness;
   std::vector<double> data;
 };
