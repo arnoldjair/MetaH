@@ -17,5 +17,9 @@ Utils::~Utils() {
 }
 
 double Utils::doubleRandBetween(double lower, double upper) {
-  return ((double) rand() * (upper - lower) / (double) RAND_MAX - lower);
+  std::uniform_real_distribution<double> distribution(lower, upper);
+  std::random_device rd;
+  std::default_random_engine generator(rd());
+
+  return distribution(generator);
 }

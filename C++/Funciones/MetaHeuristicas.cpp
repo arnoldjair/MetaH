@@ -6,19 +6,19 @@
 #include "Griewank.h"
 #include "Sphere.h"
 #include "Schwefel.h"
-
-using namespace std;
+#include "IteratedLocalSearch.h"
 
 int main(int argc, char **argv) {
-  /*auto begin = chrono::high_resolution_clock::now();
-  int x;
-  cin >> x;      // wait for user input
-  auto end = chrono::high_resolution_clock::now();
-  auto dur = end - begin;
-  auto ms = std::chrono::duration_cast < std::chrono::milliseconds
-      > (dur).count();
-  cout << ms << endl;
-   */
+
+  IteratedLocalSearch* algorithm = new IteratedLocalSearch();
+  std::unique_ptr<Record> result = algorithm->process(2, -1, 1, 0.01, 0.1, 1000,
+                                                      1000 * 6,
+                                                      new Sphere());
+
+  std::cout << result->toString() << std::endl;
+  delete algorithm;
+
+  /*
   Record* record = Record::randomRecord(100, -32, 32, 0.1);
   std::cout << record->toString() << std::endl;
   Function* sphere = new Sphere();
@@ -34,5 +34,7 @@ int main(int argc, char **argv) {
   delete griewank;
   delete rastrigin;
   delete schwefel;
+   */
+
   return 0;
 }

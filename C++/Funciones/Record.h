@@ -11,6 +11,7 @@
 #include <vector>
 #include <cstdlib>
 #include <string>
+#include <memory>
 #include "Utils.h"
 
 class Record {
@@ -19,8 +20,8 @@ class Record {
   Record(int dimensionality, double lower, double upper, double r);
   virtual ~Record();
 
-  static Record* randomRecord(int dimensionality, double lower, double upper,
-                              double r);
+  static std::unique_ptr<Record> randomRecord(int dimensionality, double lower,
+                                              double upper, double r);
 
   const std::vector<double>& getData() const;
   void setData(const std::vector<double>& data);
@@ -33,7 +34,9 @@ class Record {
   double getFitness() const;
   void setFitness(double fitness);
 
-  Record* tweak();
+  std::unique_ptr<Record> tweak();
+  std::unique_ptr<Record> perturb(double perturbation);
+  std::unique_ptr<Record> clone();
   std::string toString();
 
  private:

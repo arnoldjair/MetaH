@@ -25,22 +25,22 @@ Record::Record(int dimentionality, double lower, double upper, double r) {
 }
 
 Record::~Record() {
-  std::cout << "Bye bye record" << std::endl;
+//  std::cout << this << std::endl;
+//  std::cout << "Bye bye record" << std::endl;
 }
 
-Record* Record::randomRecord(int dimentionality, double lower, double upper,
+std::unique_ptr<Record> Record::randomRecord(int dimensionality, double lower,
+                                             double upper,
                              double r) {
-  if (dimentionality < 1) {
+  if (dimensionality < 1) {
     return 0;
   }
   std::vector<double> data;
-  for (int i = 0; i < dimentionality; ++i) {
+  for (int i = 0; i < dimensionality; ++i) {
     double value = Utils::doubleRandBetween(lower, upper);
-    //((double) rand() * (upper - lower) / (double) RAND_MAX
-    //- lower);
     data.push_back(value);
   }
-  Record* record = new Record(dimentionality, lower, upper, r);
+  std::unique_ptr<Record> record(new Record(dimensionality, lower, upper, r));
   record->setData(data);
   return record;
 }
@@ -85,14 +85,29 @@ void Record::setFitness(double fitness) {
   this->fitness = fitness;
 }
 
-Record* Record::tweak() {
+std::unique_ptr<Record> Record::tweak() {
   std::vector<double> data;
   for (int i = 0; i < this->dimensionality; ++i) {
-    double value = Utils::doubleRandBetween(lower, upper);
+    double value = Utils::doubleRandBetween(this->data[i] - this->r,
+                                            this->data[i] + this->r);
     data.push_back(value);
   }
-  Record* ret = new Record(this->dimensionality, this->lower, this->upper,
-                              this->r);
+
+  std::unique_ptr<Record> ret(
+      new Record(this->dimensionality, this->lower, this->upper, this->r));
+  ret->setData(data);
+  return ret;
+}
+
+std::unique_ptr<Record> Record::perturb(double perturbation) {
+  std::vector<double> data;
+  for (int i = 0; i < this->dimensionality; ++i) {
+    double value = Utils::doubleRandBetween(this->data[i] - perturbation,
+                                            this->data[i] + perturbation);
+    data.push_back(value);
+  }
+  std::unique_ptr<Record> ret(
+      new Record(this->dimensionality, this->lower, this->upper, this->r));
   ret->setData(data);
   return ret;
 }
@@ -102,6 +117,19 @@ std::string Record::toString() {
   ret += "Dimentionality: " + std::to_string(this->dimensionality) + "\n";
   ret += "Lower: " + std::to_string(this->lower) + "\n";
   ret += "Upper: " + std::to_string(this->upper) + "\n";
+  ret += "Fitness: " + std::to_string(this->fitness) + "\n";
 
   return ret;
+}
+
+std::unique_ptr<Record> Record::clone() {
+  std::vector<double> retData;
+  for (int i = 0; i < this->dimensionality; ++i) {
+    double value = this->data[i];
+    data.push_back(value);
+  }
+  std::unique_ptr<Record> record(new Record(dimensionality, lower, upper, r));
+  record->setData(data);
+  record->setFitness(this->fitness);
+  return record;
 }
