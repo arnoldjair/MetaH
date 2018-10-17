@@ -1,5 +1,6 @@
 #include <iostream>
 #include <chrono>
+#include "json/json.h"
 #include "Ackley.h"
 #include "Rastrigin.h"
 #include "Record.h"
@@ -11,12 +12,12 @@
 int main(int argc, char **argv) {
 
   IteratedLocalSearch* algorithm = new IteratedLocalSearch();
-  std::unique_ptr<Record> result = algorithm->process(2, -1, 1, 0.01, 0.1, 1000,
+  Record* result = algorithm->process(2, -1, 1, 0.01, 0.1,
+                                                      1000,
                                                       1000 * 6,
                                                       new Sphere());
 
   std::cout << result->toString() << std::endl;
-  delete algorithm;
 
   /*
   Record* record = Record::randomRecord(100, -32, 32, 0.1);

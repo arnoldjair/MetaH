@@ -18,14 +18,12 @@ class IteratedLocalSearch {
   /**
    * Time in miliseconds
    */
-  std::unique_ptr<Record> process(int dimentionality, double lower,
+  Record* process(int dimentionality, double lower,
                                   double upper, double radius,
                                   double perturbation,
                                   unsigned long maxRandTime,
                                   unsigned long totalTime, Function* function);
 
-  std::unique_ptr<Record> newHomeBase(auto s,
-                                      auto h);
 };
 
 #endif /* ITERATEDLOCALSEARCH_H_ */

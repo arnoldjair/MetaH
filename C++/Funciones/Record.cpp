@@ -29,9 +29,8 @@ Record::~Record() {
 //  std::cout << "Bye bye record" << std::endl;
 }
 
-std::unique_ptr<Record> Record::randomRecord(int dimensionality, double lower,
-                                             double upper,
-                             double r) {
+Record* Record::randomRecord(int dimensionality, double lower,
+                                             double upper, double r) {
   if (dimensionality < 1) {
     return 0;
   }
@@ -40,7 +39,7 @@ std::unique_ptr<Record> Record::randomRecord(int dimensionality, double lower,
     double value = Utils::doubleRandBetween(lower, upper);
     data.push_back(value);
   }
-  std::unique_ptr<Record> record(new Record(dimensionality, lower, upper, r));
+  Record* record = new Record(dimensionality, lower, upper, r);
   record->setData(data);
   return record;
 }
@@ -85,31 +84,35 @@ void Record::setFitness(double fitness) {
   this->fitness = fitness;
 }
 
-std::unique_ptr<Record> Record::tweak() {
+void Record::tweak(Record* record) {
   std::vector<double> data;
   for (int i = 0; i < this->dimensionality; ++i) {
     double value = Utils::doubleRandBetween(this->data[i] - this->r,
                                             this->data[i] + this->r);
     data.push_back(value);
   }
-
-  std::unique_ptr<Record> ret(
-      new Record(this->dimensionality, this->lower, this->upper, this->r));
-  ret->setData(data);
-  return ret;
+  record->setData(data);
+  //TODO: No debería ser necesario
+  record->setDimensionality(this->dimensionality);
+  record->setFitness(this->fitness);
+  record->setLower(this->lower);
+  record->setUpper(this->upper);
+  record->setR(this->r);
 }
 
-std::unique_ptr<Record> Record::perturb(double perturbation) {
+void Record::perturb(double perturbation, Record* record) {
   std::vector<double> data;
   for (int i = 0; i < this->dimensionality; ++i) {
     double value = Utils::doubleRandBetween(this->data[i] - perturbation,
                                             this->data[i] + perturbation);
     data.push_back(value);
   }
-  std::unique_ptr<Record> ret(
-      new Record(this->dimensionality, this->lower, this->upper, this->r));
-  ret->setData(data);
-  return ret;
+  record->setData(data);
+  //TODO: No debería ser necesario
+  record->setFitness(this->fitness);
+  record->setLower(this->lower);
+  record->setUpper(this->upper);
+  record->setR(this->r);
 }
 
 std::string Record::toString() {
@@ -122,14 +125,27 @@ std::string Record::toString() {
   return ret;
 }
 
-std::unique_ptr<Record> Record::clone() {
+Record* Record::clone() {
   std::vector<double> retData;
   for (int i = 0; i < this->dimensionality; ++i) {
     double value = this->data[i];
     data.push_back(value);
   }
-  std::unique_ptr<Record> record(new Record(dimensionality, lower, upper, r));
+  Record* record = new Record(this->dimensionality, this->lower, this->upper,
+                              this->r);
   record->setData(data);
   record->setFitness(this->fitness);
   return record;
+}
+
+void Record::copy(Record* object) {
+  this->data.clear();
+  for (int i = 0; i < object->getDimensionality(); i++) {
+    this->data.push_back(object->getData()[i]);
+  }
+  this->dimensionality = object->getDimensionality();
+  this->fitness = object->getFitness();
+  this->lower = object->getLower();
+  this->upper = object->getUpper();
+  this->r = object->getR();
 }

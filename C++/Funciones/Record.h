@@ -17,10 +17,12 @@
 class Record {
  public:
   Record();
+
   Record(int dimensionality, double lower, double upper, double r);
+
   virtual ~Record();
 
-  static std::unique_ptr<Record> randomRecord(int dimensionality, double lower,
+  static Record* randomRecord(int dimensionality, double lower,
                                               double upper, double r);
 
   const std::vector<double>& getData() const;
@@ -33,11 +35,19 @@ class Record {
   void setUpper(double upper);
   double getFitness() const;
   void setFitness(double fitness);
-
-  std::unique_ptr<Record> tweak();
-  std::unique_ptr<Record> perturb(double perturbation);
-  std::unique_ptr<Record> clone();
+  void tweak(Record* record);
+  void perturb(double perturbation, Record* record);
+  Record* clone();
+  void copy(Record* object);
   std::string toString();
+
+  double getR() const {
+    return r;
+  }
+
+  void setR(double r) {
+    this->r = r;
+  }
 
  private:
   int dimensionality;

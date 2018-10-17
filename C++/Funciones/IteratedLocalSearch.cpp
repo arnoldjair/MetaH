@@ -18,7 +18,7 @@ IteratedLocalSearch::IteratedLocalSearch() {
 IteratedLocalSearch::~IteratedLocalSearch() {
 }
 
-std::unique_ptr<Record> IteratedLocalSearch::process(int dimentionlity,
+Record* IteratedLocalSearch::process(int dimentionlity,
                                                      double lower, double upper,
                                                      double radius,
                                                      double perturbation,
@@ -26,11 +26,15 @@ std::unique_ptr<Record> IteratedLocalSearch::process(int dimentionlity,
                                                      unsigned long totalTime,
                                                      Function* function) {
 
-  std::unique_ptr<Record> s = Record::randomRecord(dimentionlity, lower, upper,
-                                                   radius);
+  std::unique_ptr<Record> s(
+      Record::randomRecord(dimentionlity, lower, upper, radius));
+
   s->setFitness(function->evaluate(*s));
-  std::unique_ptr<Record> h(s->clone());
-  std::unique_ptr<Record> best(s->clone());
+  std::unique_ptr<Record> h = std::make_unique<Record>();
+  std::unique_ptr<Record> best = std::make_unique<Record>();
+  std::unique_ptr<Record> r = std::make_unique<Record>();
+  h->copy(s.get());
+  best->copy(s.get());
 
   bool cont = true;
   unsigned long long elapsed = 0;
@@ -41,10 +45,10 @@ std::unique_ptr<Record> IteratedLocalSearch::process(int dimentionlity,
     elapsed = 0;
     do {
       auto begin = std::chrono::high_resolution_clock::now();
-      std::unique_ptr<Record> r = s->tweak();
+      s->tweak(r.get());
       r->setFitness(function->evaluate(*r));
       if (r->getFitness() < s->getFitness()) {
-        s = std::move(r);
+        s->copy(r.get());
       }
       auto end = std::chrono::high_resolution_clock::now();
       auto ms =
@@ -56,18 +60,15 @@ std::unique_ptr<Record> IteratedLocalSearch::process(int dimentionlity,
     totalElapsed += (elapsed / 1000);
 
     if (s->getFitness() < best->getFitness()) {
-      best.reset();
-      best = s->clone();
+      best->copy(s.get());
     }
 
     if (s->getFitness() < h->getFitness()) {
-      h = move(s);
+      h->copy(s.get());
     }
 
-    s = h->perturb(perturbation);
+    h->perturb(perturbation, s.get());
     s->setFitness(function->evaluate(*s));
   } while (totalElapsed <= totalTime);
-  std::cout << totalElapsed << std::endl;
-
-  return best;
+  return best.get();
 }

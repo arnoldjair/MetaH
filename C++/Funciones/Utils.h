@@ -15,6 +15,8 @@ class Utils {
   Utils();
   virtual ~Utils();
   static double doubleRandBetween(double lower, double upper);
+  static std::random_device rd;
+  static std::uniform_real_distribution<double> distribution;
 };
 
 #endif /* UTILS_H_ */

@@ -5,7 +5,11 @@
  *      Author: Arnold Jair Jiménez Vargas <arnoldjair at gmail dot com>
  */
 
+#include <iostream>
 #include "Utils.h"
+
+std::random_device Utils::rd;
+std::uniform_real_distribution<double> Utils::distribution(0, 1.);
 
 Utils::Utils() {
   // TODO Auto-generated constructor stub
@@ -17,9 +21,8 @@ Utils::~Utils() {
 }
 
 double Utils::doubleRandBetween(double lower, double upper) {
-  std::uniform_real_distribution<double> distribution(lower, upper);
-  std::random_device rd;
-  std::default_random_engine generator(rd());
-
-  return distribution(generator);
+  //std::uniform_real_distribution<double> distribution(lower, upper);
+//  std::random_device rd;
+  std::default_random_engine generator(Utils::rd());
+  return lower + ((upper - lower) * Utils::distribution(generator));
 }
