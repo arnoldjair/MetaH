@@ -1,6 +1,5 @@
 #include <iostream>
 #include <chrono>
-#include "json/json.h"
 #include "Ackley.h"
 #include "Rastrigin.h"
 #include "Record.h"
