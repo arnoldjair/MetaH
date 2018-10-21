@@ -1,5 +1,5 @@
 /*
- * IteratedLocalSearch.cpp
+ * IteratedLocalSearchT.cpp
  *
  *  Created on: 12/10/2018
  *      Author: Arnold Jair Jiménez Vargas <arnoldjair at gmail dot com>
@@ -10,15 +10,15 @@
 #include <chrono>
 #include <thread>
 
-#include "IteratedLocalSearch.h"
+#include "IteratedLocalSearchT.h"
 
-IteratedLocalSearch::IteratedLocalSearch() {
+IteratedLocalSearchT::IteratedLocalSearchT() {
 }
 
-IteratedLocalSearch::~IteratedLocalSearch() {
+IteratedLocalSearchT::~IteratedLocalSearchT() {
 }
 
-Record* IteratedLocalSearch::process(int dimentionlity,
+Record* IteratedLocalSearchT::process(int dimentionlity,
                                                      double lower, double upper,
                                                      double radius,
                                                      double perturbation,
