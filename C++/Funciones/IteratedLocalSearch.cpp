@@ -18,16 +18,13 @@ IteratedLocalSearch::IteratedLocalSearch() {
 IteratedLocalSearch::~IteratedLocalSearch() {
 }
 
-Record* IteratedLocalSearch::process(int dimentionlity,
-                                                     double lower, double upper,
-                                                     double radius,
-                                                     double perturbation,
-                                                     unsigned long maxRandTime,
-                                                     unsigned long totalTime,
-                                                     Function* function) {
+Record* IteratedLocalSearch::process(int dimentionlity, int neighbours,
+                                     double lower, double upper, double tweak,
+                                     double perturbation, int funcEvaluations,
+                                     Function* function) {
 
   std::unique_ptr<Record> s(
-      Record::randomRecord(dimentionlity, lower, upper, radius));
+      Record::randomRecord(dimentionlity, lower, upper, tweak));
 
   s->setFitness(function->evaluate(*s));
   std::unique_ptr<Record> h = std::make_unique<Record>();
@@ -37,27 +34,19 @@ Record* IteratedLocalSearch::process(int dimentionlity,
   best->copy(s.get());
 
   bool cont = true;
-  unsigned long long elapsed = 0;
-  unsigned long long totalElapsed = 0;
+  int currNeighbours = 0;
 
   do {
-    double time = Utils::doubleRandBetween(0, maxRandTime);
-    elapsed = 0;
+    currNeighbours = 0;
+
     do {
-      auto begin = std::chrono::high_resolution_clock::now();
+      currNeighbours++;
       s->tweak(r.get());
       r->setFitness(function->evaluate(*r));
       if (r->getFitness() < s->getFitness()) {
         s->copy(r.get());
       }
-      auto end = std::chrono::high_resolution_clock::now();
-      auto ms =
-          std::chrono::duration_cast<std::chrono::microseconds>(
-          end - begin);
-      elapsed += ms.count();
-    } while (elapsed <= (time * 1000));
-
-    totalElapsed += (elapsed / 1000);
+    } while (currNeighbours < neighbours);
 
     if (s->getFitness() < best->getFitness()) {
       best->copy(s.get());
@@ -69,6 +58,6 @@ Record* IteratedLocalSearch::process(int dimentionlity,
 
     h->perturb(perturbation, s.get());
     s->setFitness(function->evaluate(*s));
-  } while (totalElapsed <= totalTime);
+  } while (function->getEvaluationCount() < funcEvaluations);
   return best.get();
 }

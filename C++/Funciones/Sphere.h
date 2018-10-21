@@ -16,6 +16,9 @@ class Sphere: public Function {
 	Sphere();
 	virtual ~Sphere();
   virtual double evaluate(Record& record);
+  virtual int getEvaluationCount();
+ private:
+  int evaluationCount;
 };
 
 #endif /* SPHERE_H_ */

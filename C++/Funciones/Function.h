@@ -15,6 +15,7 @@ public:
 	Function();
 	virtual ~Function();
   virtual double evaluate(Record& record) = 0;
+  virtual int getEvaluationCount() = 0;
 };
 
 #endif /* FUNCTION_H_ */

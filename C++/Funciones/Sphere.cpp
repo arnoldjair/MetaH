@@ -12,6 +12,7 @@
 #include "Sphere.h"
 
 Sphere::Sphere() {
+  this->evaluationCount = 0;
 }
 
 Sphere::~Sphere() {
@@ -23,6 +24,10 @@ double Sphere::evaluate(Record& record) {
   for (int i = 0; i < record.getDimensionality(); ++i) {
     ret += pow(record.getData()[i], 2);
   }
+  this->evaluationCount++;
   return sqrt(ret);
 }
 
+int Sphere::getEvaluationCount() {
+  return this->evaluationCount;
+}
