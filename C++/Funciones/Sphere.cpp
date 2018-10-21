@@ -12,6 +12,11 @@
 #include "Sphere.h"
 
 Sphere::Sphere() {
+  this->minimizes = true;
+}
+
+Sphere::Sphere(bool minimizes) {
+  this->minimizes = minimizes;
 }
 
 Sphere::~Sphere() {
@@ -26,3 +31,10 @@ double Sphere::evaluate(Record& record) {
   return sqrt(ret);
 }
 
+double Sphere::compare(Record* record1, Record* record2) {
+  if (this->minimizes) {
+    return record1->getFitness() <= record2->getFitness() ? -1 : 1;
+  } else {
+    return record1->getFitness() >= record2->getFitness() ? -1 : 1;
+  }
+}

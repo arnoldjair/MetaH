@@ -14,8 +14,21 @@
 class Sphere: public Function {
  public:
 	Sphere();
+  Sphere(bool minimizes);
 	virtual ~Sphere();
   virtual double evaluate(Record& record);
+  virtual double compare(Record* record1, Record* record2);
+
+  bool isMinimizes() const {
+    return minimizes;
+  }
+
+  void setMinimizes(bool minimizes) {
+    this->minimizes = minimizes;
+  }
+
+ private:
+  bool minimizes;
 };
 
 #endif /* SPHERE_H_ */
