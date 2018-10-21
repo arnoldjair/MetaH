@@ -15,6 +15,7 @@ public:
 	Function();
 	virtual ~Function();
   virtual double evaluate(Record& record) = 0;
+  virtual double compare(Record* record1, Record* record2) = 0;
 };
 
 #endif /* FUNCTION_H_ */
