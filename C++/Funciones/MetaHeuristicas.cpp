@@ -4,13 +4,13 @@
 #include "Rastrigin.h"
 #include "Record.h"
 #include "Griewank.h"
+#include "IteratedLocalSearchT.h"
 #include "Sphere.h"
 #include "Schwefel.h"
-#include "IteratedLocalSearch.h"
 
 int main(int argc, char **argv) {
 
-  IteratedLocalSearch* algorithm = new IteratedLocalSearch();
+  IteratedLocalSearchT* algorithm = new IteratedLocalSearchT();
   Record* result = algorithm->process(2, -1, 1, 0.01, 0.1,
                                                       1000,
                                                       1000 * 6,
