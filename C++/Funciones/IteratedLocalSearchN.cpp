@@ -10,15 +10,15 @@
 #include <chrono>
 #include <thread>
 
-#include "IteratedLocalSearch.h"
+#include "IteratedLocalSearchN.h"
 
-IteratedLocalSearch::IteratedLocalSearch() {
+IteratedLocalSearchN::IteratedLocalSearchN() {
 }
 
-IteratedLocalSearch::~IteratedLocalSearch() {
+IteratedLocalSearchN::~IteratedLocalSearchN() {
 }
 
-Record* IteratedLocalSearch::process(int dimentionlity, int neighbours,
+Record* IteratedLocalSearchN::process(int dimentionlity, int neighbours,
                                      double lower, double upper, double tweak,
                                      double perturbation, int funcEvaluations,
                                      Function* function) {

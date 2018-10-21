@@ -10,10 +10,10 @@
 
 #include "Function.h"
 #include "Record.h"
-class IteratedLocalSearch {
+class IteratedLocalSearchN {
  public:
-  IteratedLocalSearch();
-  virtual ~IteratedLocalSearch();
+  IteratedLocalSearchN();
+  virtual ~IteratedLocalSearchN();
 
   /**
    * Time in miliseconds

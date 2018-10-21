@@ -18,9 +18,9 @@ class IteratedLocalSearchT {
   /**
    * Time in miliseconds
    */
-  Record* process(int dimentionality, int neighbours, double lower,
-                  double upper, double tweak, double perturbation,
-                  int funcEvaluations, Function* function);
+  Record* process(int dimensionality, double lower, double upper, double radius,
+                  double perturbation, unsigned long maxRandTime,
+                  unsigned long totalTime, Function* function);
 
 };
 

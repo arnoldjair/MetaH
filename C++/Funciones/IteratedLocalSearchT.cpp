@@ -18,16 +18,15 @@ IteratedLocalSearchT::IteratedLocalSearchT() {
 IteratedLocalSearchT::~IteratedLocalSearchT() {
 }
 
-Record* IteratedLocalSearchT::process(int dimentionlity,
-                                                     double lower, double upper,
-                                                     double radius,
-                                                     double perturbation,
-                                                     unsigned long maxRandTime,
-                                                     unsigned long totalTime,
-                                                     Function* function) {
+Record* IteratedLocalSearchT::process(int dimensionality, double lower,
+                                      double upper, double radius,
+                                      double perturbation,
+                                      unsigned long maxRandTime,
+                                      unsigned long totalTime,
+                                      Function* function) {
 
   std::unique_ptr<Record> s(
-      Record::randomRecord(dimentionlity, lower, upper, radius));
+      Record::randomRecord(dimensionality, lower, upper, radius));
 
   s->setFitness(function->evaluate(*s));
   std::unique_ptr<Record> h = std::make_unique<Record>();
@@ -51,8 +50,7 @@ Record* IteratedLocalSearchT::process(int dimentionlity,
         s->copy(r.get());
       }
       auto end = std::chrono::high_resolution_clock::now();
-      auto ms =
-          std::chrono::duration_cast<std::chrono::microseconds>(
+      auto ms = std::chrono::duration_cast<std::chrono::microseconds>(
           end - begin);
       elapsed += ms.count();
     } while (elapsed <= (time * 1000));

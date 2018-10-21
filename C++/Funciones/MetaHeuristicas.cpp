@@ -10,11 +10,7 @@
 
 int main(int argc, char **argv) {
 
-  IteratedLocalSearch* algorithm = new IteratedLocalSearch();
-  Record* result = algorithm->process(100, 20, -1, 1, .001, .1, 100,
-                                                      new Sphere());
 
-  std::cout << result->toString() << std::endl;
 
   /*
   Record* record = Record::randomRecord(100, -32, 32, 0.1);
