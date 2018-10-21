@@ -17,6 +17,9 @@ class Sphere: public Function {
   Sphere(bool minimizes);
 	virtual ~Sphere();
   virtual double evaluate(Record& record);
+  virtual int getEvaluationCount();
+ private:
+  int evaluationCount;
   virtual double compare(Record* record1, Record* record2);
 
   bool isMinimizes() const {

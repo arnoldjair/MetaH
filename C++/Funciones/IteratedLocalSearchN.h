@@ -5,15 +5,15 @@
  *      Author: Arnold Jair Jiménez Vargas <arnoldjair at gmail dot com>
  */
 
-#ifndef ITERATEDLOCALSEARCHT_H_
-#define ITERATEDLOCALSEARCHT_H_
+#ifndef ITERATEDLOCALSEARCH_H_
+#define ITERATEDLOCALSEARCH_H_
 
 #include "Function.h"
 #include "Record.h"
-class IteratedLocalSearchT {
+class IteratedLocalSearch {
  public:
-  IteratedLocalSearchT();
-  virtual ~IteratedLocalSearchT();
+  IteratedLocalSearch();
+  virtual ~IteratedLocalSearch();
 
   /**
    * Time in miliseconds
@@ -24,4 +24,4 @@ class IteratedLocalSearchT {
 
 };
 
-#endif /* ITERATEDLOCALSEARCHT_H_ */
+#endif /* ITERATEDLOCALSEARCH_H_ */

@@ -12,6 +12,7 @@
 #include "Sphere.h"
 
 Sphere::Sphere() {
+  this->evaluationCount = 0;
   this->minimizes = true;
 }
 
@@ -28,9 +29,13 @@ double Sphere::evaluate(Record& record) {
   for (int i = 0; i < record.getDimensionality(); ++i) {
     ret += pow(record.getData()[i], 2);
   }
+  this->evaluationCount++;
   return sqrt(ret);
 }
 
+int Sphere::getEvaluationCount() {
+  return this->evaluationCount;
+}
 double Sphere::compare(Record* record1, Record* record2) {
   if (this->minimizes) {
     return record1->getFitness() <= record2->getFitness() ? -1 : 1;

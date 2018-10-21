@@ -10,10 +10,8 @@
 
 int main(int argc, char **argv) {
 
-  IteratedLocalSearchT* algorithm = new IteratedLocalSearchT();
-  Record* result = algorithm->process(2, -1, 1, 0.01, 0.1,
-                                                      1000,
-                                                      1000 * 6,
+  IteratedLocalSearch* algorithm = new IteratedLocalSearch();
+  Record* result = algorithm->process(100, 20, -1, 1, .001, .1, 100,
                                                       new Sphere());
 
   std::cout << result->toString() << std::endl;
