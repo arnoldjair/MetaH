@@ -1,26 +1,27 @@
 /*
- * Schwefel.h
+ * Langerman.h
  *
- *  Created on: 12/10/2018
+ *  Created on: 24/10/2018
  *      Author: Arnold Jair Jiménez Vargas <arnoldjair at gmail dot com>
  */
 
-#ifndef SCHWEFEL_H_
-#define SCHWEFEL_H_
+#ifndef LANGERMANN_H_
+#define LANGERMANN_H_
 
 #include "Function.h"
 
-class Schwefel : public Function {
+class Langermann : public Function {
  public:
-  Schwefel();
-  virtual ~Schwefel();
+  Langermann();
+  virtual ~Langermann();
   virtual double evaluate(Record& record);
   virtual int getEvaluationCount();
   virtual double compare(Record* record1, Record* record2);
   virtual double getLower();
   virtual double getUpper();
+
  private:
   int evaluationCount;
 };
 
-#endif /* SCHWEFEL_H_ */
+#endif /* LANGERMANN_H_ */

@@ -12,6 +12,7 @@
 #include "Schwefel.h"
 
 Schwefel::Schwefel() {
+  this->evaluationCount = 0;
 }
 
 Schwefel::~Schwefel() {
@@ -31,4 +32,20 @@ double Schwefel::evaluate(Record& record) {
   ret = 418.9829 * record.getDimensionality() - sum;
 
   return ret;
+}
+
+int Schwefel::getEvaluationCount() {
+  return this->evaluationCount;
+}
+
+double Schwefel::compare(Record* record1, Record* record2) {
+  return record1->getFitness() <= record2->getFitness() ? -1 : 1;
+}
+
+double Schwefel::getLower() {
+  return -500;
+}
+
+double Schwefel::getUpper() {
+  return 500;
 }

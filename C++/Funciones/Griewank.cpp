@@ -12,6 +12,7 @@
 #include "Griewank.h"
 
 Griewank::Griewank() {
+  this->evaluationCount = 0;
 }
 
 Griewank::~Griewank() {
@@ -34,4 +35,20 @@ double Griewank::evaluate(Record& record) {
   ret = sum_squares - product + 1;
 
   return ret;
+}
+
+int Griewank::getEvaluationCount() {
+  return this->evaluationCount;
+}
+
+double Griewank::compare(Record* record1, Record* record2) {
+  return record1->getFitness() <= record2->getFitness() ? -1 : 1;
+}
+
+double Griewank::getLower() {
+  return -600;
+}
+
+double Griewank::getUpper() {
+  return 600;
 }

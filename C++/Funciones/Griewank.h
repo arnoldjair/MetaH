@@ -15,6 +15,12 @@ class Griewank : public Function {
   Griewank();
   virtual ~Griewank();
   virtual double evaluate(Record& record);
+  virtual int getEvaluationCount();
+  virtual double compare(Record* record1, Record* record2);
+  virtual double getLower();
+  virtual double getUpper();
+ private:
+  int evaluationCount;
 };
 
 #endif /* GRIEWANK_H_ */

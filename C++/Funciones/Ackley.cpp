@@ -12,6 +12,7 @@
 #include "Ackley.h"
 
 Ackley::Ackley() {
+  this->evaluationCount = 0;
 }
 
 Ackley::~Ackley() {
@@ -35,4 +36,20 @@ double Ackley::evaluate(Record& record) {
       - exp(sum_cos / record.getDimensionality()) + 20 + exp(1);
 
   return ret;
+}
+
+int Ackley::getEvaluationCount() {
+  return this->evaluationCount;
+}
+
+double Ackley::compare(Record* record1, Record* record2) {
+  return record1->getFitness() <= record2->getFitness() ? -1 : 1;
+}
+
+double Ackley::getLower() {
+  return -32.768;
+}
+
+double Ackley::getUpper() {
+  return 32.768;
 }

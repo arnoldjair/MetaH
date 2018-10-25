@@ -17,6 +17,8 @@ public:
   virtual double evaluate(Record& record) = 0;
   virtual int getEvaluationCount() = 0;
   virtual double compare(Record* record1, Record* record2) = 0;
+  virtual double getLower() = 0;
+  virtual double getUpper() = 0;
 };
 
 #endif /* FUNCTION_H_ */

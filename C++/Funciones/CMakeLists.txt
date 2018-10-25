@@ -1,7 +1,10 @@
+project (MetaHeuristicas)
 cmake_minimum_required (VERSION 2.6)
 
-project (MetaHeuristicas)
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
 
 add_executable(MetaHeuristicas MetaHeuristicas.cpp Ackley.cpp IteratedLocalSearchN.cpp IteratedLocalSearchT.cpp Function.cpp 
-Griewank.cpp Rastrigin.cpp Record.cpp Schwefel.cpp Sphere.cpp Utils.cpp)
+Griewank.cpp Langermann.cpp Rastrigin.cpp Record.cpp Schwefel.cpp Sphere.cpp Utils.cpp)
 
+target_link_libraries(MetaHeuristicas ${CONAN_LIBS})

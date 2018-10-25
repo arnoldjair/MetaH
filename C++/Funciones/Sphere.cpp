@@ -13,11 +13,6 @@
 
 Sphere::Sphere() {
   this->evaluationCount = 0;
-  this->minimizes = true;
-}
-
-Sphere::Sphere(bool minimizes) {
-  this->minimizes = minimizes;
 }
 
 Sphere::~Sphere() {
@@ -37,9 +32,13 @@ int Sphere::getEvaluationCount() {
   return this->evaluationCount;
 }
 double Sphere::compare(Record* record1, Record* record2) {
-  if (this->minimizes) {
-    return record1->getFitness() <= record2->getFitness() ? -1 : 1;
-  } else {
-    return record1->getFitness() >= record2->getFitness() ? -1 : 1;
-  }
+  return record1->getFitness() <= record2->getFitness() ? -1 : 1;
+}
+
+double Sphere::getLower() {
+  return -5;
+}
+
+double Sphere::getUpper() {
+  return 5;
 }

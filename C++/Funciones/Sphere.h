@@ -11,27 +11,18 @@
 #include "Function.h"
 #include "Record.h"
 
-class Sphere: public Function {
+class Sphere : public Function {
  public:
-	Sphere();
-  Sphere(bool minimizes);
-	virtual ~Sphere();
+  Sphere();
+  virtual ~Sphere();
   virtual double evaluate(Record& record);
   virtual int getEvaluationCount();
+  virtual double compare(Record* record1, Record* record2);
+  virtual double getLower();
+  virtual double getUpper();
  private:
   int evaluationCount;
-  virtual double compare(Record* record1, Record* record2);
 
-  bool isMinimizes() const {
-    return minimizes;
-  }
-
-  void setMinimizes(bool minimizes) {
-    this->minimizes = minimizes;
-  }
-
- private:
-  bool minimizes;
 };
 
 #endif /* SPHERE_H_ */

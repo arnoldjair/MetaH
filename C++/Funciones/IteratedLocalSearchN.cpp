@@ -18,13 +18,13 @@ IteratedLocalSearchN::IteratedLocalSearchN() {
 IteratedLocalSearchN::~IteratedLocalSearchN() {
 }
 
-Record* IteratedLocalSearchN::process(int dimentionlity, int neighbours,
+Record* IteratedLocalSearchN::process(int dimentionality, int neighbours,
                                      double lower, double upper, double tweak,
                                      double perturbation, int funcEvaluations,
                                      Function* function) {
 
   std::unique_ptr<Record> s(
-      Record::randomRecord(dimentionlity, lower, upper, tweak));
+      Record::randomRecord(dimentionality, lower, upper, tweak));
 
   s->setFitness(function->evaluate(*s));
   std::unique_ptr<Record> h = std::make_unique<Record>();

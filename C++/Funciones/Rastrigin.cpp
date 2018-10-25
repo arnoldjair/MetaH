@@ -12,6 +12,7 @@
 #include "Rastrigin.h"
 
 Rastrigin::Rastrigin() {
+  this->evaluationCount = 0;
 }
 
 Rastrigin::~Rastrigin() {
@@ -33,4 +34,20 @@ double Rastrigin::evaluate(Record& record) {
   ret = 10 * record.getDimensionality() + sum;
 
   return ret;
+}
+
+int Rastrigin::getEvaluationCount() {
+  return this->evaluationCount;
+}
+
+double Rastrigin::compare(Record* record1, Record* record2) {
+  return record1->getFitness() <= record2->getFitness() ? -1 : 1;
+}
+
+double Rastrigin::getLower() {
+  return -5.12;
+}
+
+double Rastrigin::getUpper() {
+  return 5.12;
 }
