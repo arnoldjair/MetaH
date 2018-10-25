@@ -34,6 +34,7 @@ double Griewank::evaluate(Record& record) {
   sum_squares = sum_squares / 4000;
   ret = sum_squares - product + 1;
 
+  this->evaluationCount++;
   return ret;
 }
 

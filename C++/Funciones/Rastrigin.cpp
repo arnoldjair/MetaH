@@ -33,6 +33,7 @@ double Rastrigin::evaluate(Record& record) {
 
   ret = 10 * record.getDimensionality() + sum;
 
+  this->evaluationCount++;
   return ret;
 }
 

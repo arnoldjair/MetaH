@@ -35,6 +35,7 @@ double Ackley::evaluate(Record& record) {
   ret = -20 * exp(-0.2 * sqrt(sum_x / record.getDimensionality()))
       - exp(sum_cos / record.getDimensionality()) + 20 + exp(1);
 
+  this->evaluationCount++;
   return ret;
 }
 

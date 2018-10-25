@@ -31,6 +31,7 @@ double Schwefel::evaluate(Record& record) {
 
   ret = 418.9829 * record.getDimensionality() - sum;
 
+  this->evaluationCount++;
   return ret;
 }
 
