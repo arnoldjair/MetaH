@@ -1,5 +1,9 @@
 {
-  "dimentionality": 100,
-  "neighbours": 30,
-  "lower": 100
+  "dimensionality": 2,
+  "neighbours": 10,
+  "tweak": 0.2,
+  "perturbation": 1.0,
+  "funcEvaluations": 5000,
+  "functionName": "Sphere",
+  "runs": 30
 }

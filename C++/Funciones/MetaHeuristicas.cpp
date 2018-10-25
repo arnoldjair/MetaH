@@ -10,6 +10,7 @@
 #include "IteratedLocalSearchN.h"
 #include "Sphere.h"
 #include "Schwefel.h"
+#include "FunctionFactory.h"
 
 using json = nlohmann::json;
 
@@ -19,16 +20,36 @@ int main(int argc, char *argv[]) {
   json j;
   i >> j;
 
-  std::cout << j["message"] << std::endl;
-//  IteratedLocalSearchT* algorithm = new IteratedLocalSearchT();
-//  Record* result = algorithm->process(100, -1, 1, 0.01, 0.1, 1000, 10000,
-//                                      new Sphere());
-//
-//  std::cout << result->toString() << std::endl;
+  //TODO: Falta validar que el json esté bien formado pe.
+  int dimensionality = j["dimensionality"];
+  int neighbours = j["neighbours"];
+  double tweak = j["tweak"];
+  double perturbation = j["perturbation"];
+  int funcEvaluations = j["funcEvaluations"];
+  std::string functionName = j["functionName"];
+  int runs = j["runs"];
+
+  Function* function = FunctionFactory::getFunction(functionName);
+
+  if (function == NULL) {
+    return -1;
+  }
 
   IteratedLocalSearchN* algorithmN = new IteratedLocalSearchN();
-  Record* resultN = algorithmN->process(100, 20, -1, 1, 0.01, 0.1, 5000,
-                                        new Sphere);
-  std::cout << resultN->toString() << std::endl;
+
+  double eval = 0;
+
+  for (int i = 0; i < runs; i++) {
+    Record* resultN = algorithmN->process(dimensionality, neighbours,
+                                          function->getLower(),
+                                          function->getUpper(), tweak,
+                                          perturbation, funcEvaluations,
+                                          function);
+    eval += resultN->getFitness();
+    std::cout << resultN->toString() << std::endl;
+  }
+
+  eval /= runs;
+  std::cout << eval << std::endl;
   return 0;
 }
