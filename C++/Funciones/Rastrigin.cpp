@@ -49,6 +49,10 @@ double Rastrigin::getLower() {
   return -5.12;
 }
 
+void Rastrigin::resetEvaluationCount() {
+  this->evaluationCount = 0;
+}
+
 double Rastrigin::getUpper() {
   return 5.12;
 }

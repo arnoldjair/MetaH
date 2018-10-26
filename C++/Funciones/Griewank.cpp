@@ -53,3 +53,7 @@ double Griewank::getLower() {
 double Griewank::getUpper() {
   return 600;
 }
+
+void Griewank::resetEvaluationCount() {
+  this->evaluationCount = 0;
+}

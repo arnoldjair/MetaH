@@ -47,6 +47,10 @@ double Schwefel::getLower() {
   return -500;
 }
 
+void Schwefel::resetEvaluationCount() {
+  this->evaluationCount = 0;
+}
+
 double Schwefel::getUpper() {
   return 500;
 }

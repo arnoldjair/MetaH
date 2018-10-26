@@ -22,8 +22,8 @@ class Record {
 
   virtual ~Record();
 
-  static Record* randomRecord(int dimensionality, double lower,
-                                              double upper, double r);
+  static Record* randomRecord(int dimensionality, double lower, double upper,
+                              double r);
 
   const std::vector<double>& getData() const;
   void setData(const std::vector<double>& data);

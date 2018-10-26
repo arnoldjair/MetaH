@@ -38,7 +38,7 @@ Record* IteratedLocalSearchT::process(int dimensionality, double lower,
   bool cont = true;
   unsigned long long elapsed = 0;
   unsigned long long totalElapsed = 0;
-
+  function->resetEvaluationCount();
   do {
     double time = Utils::doubleRandBetween(0, maxRandTime);
     elapsed = 0;

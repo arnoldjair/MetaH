@@ -54,3 +54,7 @@ double Ackley::getLower() {
 double Ackley::getUpper() {
   return 32.768;
 }
+
+void Ackley::resetEvaluationCount() {
+  this->evaluationCount = 0;
+}

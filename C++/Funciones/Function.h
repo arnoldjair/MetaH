@@ -16,6 +16,7 @@ public:
 	virtual ~Function();
   virtual double evaluate(Record& record) = 0;
   virtual int getEvaluationCount() = 0;
+  virtual void resetEvaluationCount() = 0;
   virtual double compare(Record* record1, Record* record2) = 0;
   virtual double getLower() = 0;
   virtual double getUpper() = 0;

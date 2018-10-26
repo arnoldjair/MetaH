@@ -5,5 +5,6 @@
   "perturbation": 1.0,
   "funcEvaluations": 5000,
   "functionName": "Sphere",
-  "runs": 30
+  "runs": 30,
+  "algorithm": "RandomSearch"
 }

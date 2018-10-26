@@ -35,7 +35,7 @@ Record* IteratedLocalSearchN::process(int dimensionality, int neighbours,
 
   bool cont = true;
   int currNeighbours = 0;
-
+  function->resetEvaluationCount();
   do {
     currNeighbours = 0;
 

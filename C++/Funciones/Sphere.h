@@ -17,6 +17,7 @@ class Sphere : public Function {
   virtual ~Sphere();
   virtual double evaluate(Record& record);
   virtual int getEvaluationCount();
+  virtual void resetEvaluationCount();
   virtual double compare(Record* record1, Record* record2);
   virtual double getLower();
   virtual double getUpper();

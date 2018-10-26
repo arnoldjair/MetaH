@@ -29,8 +29,8 @@ Record::~Record() {
 //  std::cout << "Bye bye record" << std::endl;
 }
 
-Record* Record::randomRecord(int dimensionality, double lower,
-                                             double upper, double r) {
+Record* Record::randomRecord(int dimensionality, double lower, double upper,
+                             double r) {
   if (dimensionality < 1) {
     return 0;
   }

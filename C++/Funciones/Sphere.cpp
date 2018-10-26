@@ -39,6 +39,10 @@ double Sphere::getLower() {
   return -5;
 }
 
+void Sphere::resetEvaluationCount() {
+  this->evaluationCount = 0;
+}
+
 double Sphere::getUpper() {
   return 5;
 }
