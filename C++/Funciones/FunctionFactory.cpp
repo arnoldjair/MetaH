@@ -11,6 +11,7 @@
 #include "Rastrigin.h"
 #include "Schwefel.h"
 #include "Sphere.h"
+#include "PowellSum.h"
 
 FunctionFactory::FunctionFactory() {
   // TODO Auto-generated constructor stub
@@ -40,8 +41,11 @@ Function* FunctionFactory::getFunction(std::string functionName) {
 
   if (functionName == "Sphere") {
     return new Sphere();
-}
+  }
 
+  if (functionName == "PowellSum") {
+    return new PowellSum();
+  }
 
   return NULL;
 }

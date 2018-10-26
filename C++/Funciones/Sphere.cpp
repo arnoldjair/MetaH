@@ -36,7 +36,7 @@ double Sphere::compare(Record* record1, Record* record2) {
 }
 
 double Sphere::getLower() {
-  return -5;
+  return -100;
 }
 
 void Sphere::resetEvaluationCount() {
@@ -44,5 +44,5 @@ void Sphere::resetEvaluationCount() {
 }
 
 double Sphere::getUpper() {
-  return 5;
+  return 100;
 }

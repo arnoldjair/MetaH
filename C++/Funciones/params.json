@@ -1,10 +1,25 @@
 {
-  "dimensionality": 2,
-  "neighbours": 10,
-  "tweak": 0.2,
-  "perturbation": 1.0,
-  "funcEvaluations": 5000,
-  "functionName": "Sphere",
-  "runs": 30,
-  "algorithm": "RandomSearch"
+	"perturbation": [
+		1.0,
+		2.0,
+		3.0
+	],
+	"tweak": [
+		0.2,
+		0.6,
+		1.0
+	],
+	"neighbours": [
+		10,
+		20
+	],
+	"dimensionality": [
+		20,
+		50,
+		100
+	],
+	"funcEvaluations": 5000,
+	"functionName": "Griewank",
+	"algorithm": "RandomSearch",
+	"runs": 30
 }
