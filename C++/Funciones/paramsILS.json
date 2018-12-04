@@ -1,0 +1,25 @@
+{
+	"perturbation": [
+		1.0,
+		2.0,
+		3.0
+	],
+	"tweak": [
+		0.2,
+		0.6,
+		1.0
+	],
+	"neighbours": [
+		10,
+		20
+	],
+	"dimensionality": [
+		20,
+		50,
+		100
+	],
+	"funcEvaluations": 5000,
+	"functionName": "Griewank",
+	"algorithm": "ILSN",
+	"runs": 30
+}
