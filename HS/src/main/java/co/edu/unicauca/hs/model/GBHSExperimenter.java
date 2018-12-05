@@ -41,8 +41,9 @@ public class GBHSExperimenter implements Callable<Result>, Experimenter {
     private ObjectiveFunction function;
     private Random random;
     private GBHS algorithm;
-    private double[] results;
+    private Record[] results;
     private boolean log;
+    private int size;
 
     public GBHSExperimenter(Task task) throws Exception {
         this.hms = task.getHms();
@@ -57,213 +58,160 @@ public class GBHSExperimenter implements Callable<Result>, Experimenter {
         } else {
             this.random = new Random();
         }
-        this.algorithm = GBHSFactory.getGBHS(task.getAlgorithm());
-        this.solutions = new Agent[nExp];
-        this.contingencyMatrices = new ContingencyMatrix[nExp];
-        this.icc = new int[nExp];
-        this.iic = new int[nExp];
-        this.er = new double[nExp];
-        this.distance = DistanceFactory.getDistance(task.getDistance());
-        this.kmeans = KMeansFactory.getKMeans(task.getKmeansAlgorithm());
-        this.initialization = task.getInitialization();
-        this.fixedK = false;
-        if (task.isFixedK()) {
-            if (dataset.getK() == 0) {
-                throw new Exception("El dataset no tiene el valor de k");
-            }
-            this.fixedK = task.isFixedK();
-        }
+        this.algorithm = task.getAlgorithm();
+        this.results = new Record[nExp];
         this.log = task.isLog();
+        this.size = task.getSize();
 
     }
+    
+    public int getHms() {
+		return hms;
+	}
 
-    @Override
+
+
+	public void setHms(int hms) {
+		this.hms = hms;
+	}
+
+
+
+	public int getMaxImprovisations() {
+		return maxImprovisations;
+	}
+
+
+
+	public void setMaxImprovisations(int maxImprovisations) {
+		this.maxImprovisations = maxImprovisations;
+	}
+
+
+
+	public int getnExp() {
+		return nExp;
+	}
+
+
+
+	public void setnExp(int nExp) {
+		this.nExp = nExp;
+	}
+
+
+
+	public double getMinPar() {
+		return minPar;
+	}
+
+
+
+	public void setMinPar(double minPar) {
+		this.minPar = minPar;
+	}
+
+
+
+	public double getMaxPar() {
+		return maxPar;
+	}
+
+
+
+	public void setMaxPar(double maxPar) {
+		this.maxPar = maxPar;
+	}
+
+
+
+	public double getHmcr() {
+		return hmcr;
+	}
+
+
+
+	public void setHmcr(double hmcr) {
+		this.hmcr = hmcr;
+	}
+
+
+
+	public ObjectiveFunction getFunction() {
+		return function;
+	}
+
+
+
+	public void setFunction(ObjectiveFunction function) {
+		this.function = function;
+	}
+
+
+
+	public Random getRandom() {
+		return random;
+	}
+
+
+
+	public void setRandom(Random random) {
+		this.random = random;
+	}
+
+
+
+	public GBHS getAlgorithm() {
+		return algorithm;
+	}
+
+
+
+	public void setAlgorithm(GBHS algorithm) {
+		this.algorithm = algorithm;
+	}
+
+
+
+	public Record[] getResults() {
+		return results;
+	}
+
+
+
+	public void setResults(Record[] results) {
+		this.results = results;
+	}
+
+
+
+	public boolean isLog() {
+		return log;
+	}
+
+
+
+	public void setLog(boolean log) {
+		this.log = log;
+	}
+
+
+
+	@Override
     public synchronized Result experiment() {
         Result ret = new Result();
-        int n = dataset.getN();
 
         for (int i = 0; i < nExp; i++) {
             GBHS currAlgorithm = algorithm.newInstance();
-            Agent cSolucion = currAlgorithm.process(hms, maxImprovisations,
-                    maxK, maxKMeans, 0.0, minPar, maxPar, hmcr, pOptimize,
-                    dataset, f, log, fixedK, new Random(i), distance, kmeans, initialization);
-            solutions[i] = cSolucion;
-
-            ContingencyMatrix contingencyMatrix = new ContingencyMatrix(cSolucion, dataset);
-            contingencyMatrices[i] = contingencyMatrix;
-
-            ECVM ecvm = new ECVM(contingencyMatrix);
-            icc[i] = ecvm.getIcc();
-            iic[i] = n - icc[i];
-            er[i] = ((double) iic[i] / n) * 100;
+            Record cSolucion = currAlgorithm.process(hms, maxImprovisations, minPar, maxPar, hmcr, function, log, random, size);
+            results[i] = cSolucion;
         }
 
-        //ret.setAgents(solutions);
-        ret.setIcc(icc);
-        ret.setIic(iic);
-        ret.setEr(er);
         ret.setNumExperiments(nExp);
-        ret.calcAverages();
-        //ret.setContingencyMatrices(contingencyMatrices);
-        ret.setDataset(dataset.toString());
-        ret.setObjectiveFunction(f.toString());
-        ret.setAlgorithm(algorithm.toString());
-        ret.setDistance(distance.toString());
         return ret;
     }
 
-    public int getHms() {
-        return hms;
-    }
-
-    public void setHms(int hms) {
-        this.hms = hms;
-    }
-
-    public int getMaxImprovisations() {
-        return maxImprovisations;
-    }
-
-    public void setMaxImprovisations(int maxImprovisations) {
-        this.maxImprovisations = maxImprovisations;
-    }
-
-    public int getMaxK() {
-        return maxK;
-    }
-
-    public void setMaxK(int maxK) {
-        this.maxK = maxK;
-    }
-
-    public int getMaxKMeans() {
-        return maxKMeans;
-    }
-
-    public void setMaxKMeans(int maxKMeans) {
-        this.maxKMeans = maxKMeans;
-    }
-
-    public int getnExp() {
-        return nExp;
-    }
-
-    public void setnExp(int nExp) {
-        this.nExp = nExp;
-    }
-
-    public double getMinPar() {
-        return minPar;
-    }
-
-    public void setMinPar(double minPar) {
-        this.minPar = minPar;
-    }
-
-    public double getMaxPar() {
-        return maxPar;
-    }
-
-    public void setMaxPar(double maxPar) {
-        this.maxPar = maxPar;
-    }
-
-    public double getHmcr() {
-        return hmcr;
-    }
-
-    public void setHmcr(double hmcr) {
-        this.hmcr = hmcr;
-    }
-
-    public double getpOptimize() {
-        return pOptimize;
-    }
-
-    public void setpOptimize(double pOptimize) {
-        this.pOptimize = pOptimize;
-    }
-
-    public Dataset getDataset() {
-        return dataset;
-    }
-
-    public void setDataset(Dataset dataset) {
-        this.dataset = dataset;
-    }
-
-    public ObjectiveFunction getF() {
-        return f;
-    }
-
-    public void setF(ObjectiveFunction f) {
-        this.f = f;
-    }
-
-    public Random getRandom() {
-        return random;
-    }
-
-    public void setRandom(Random random) {
-        this.random = random;
-    }
-
-    public GBHS getAlgorithm() {
-        return algorithm;
-    }
-
-    public void setAlgorithm(GBHS algorithm) {
-        this.algorithm = algorithm;
-    }
-
-    public Agent[] getSolutions() {
-        return solutions;
-    }
-
-    public void setSolutions(Agent[] solutions) {
-        this.solutions = solutions;
-    }
-
-    public ContingencyMatrix[] getContingencyMatrices() {
-        return contingencyMatrices;
-    }
-
-    public void setContingencyMatrices(ContingencyMatrix[] contingencyMatrices) {
-        this.contingencyMatrices = contingencyMatrices;
-    }
-
-    public int[] getIcc() {
-        return icc;
-    }
-
-    public void setIcc(int[] icc) {
-        this.icc = icc;
-    }
-
-    public int[] getIic() {
-        return iic;
-    }
-
-    public void setIic(int[] iic) {
-        this.iic = iic;
-    }
-
-    public double[] getEr() {
-        return er;
-    }
-
-    public void setEr(double[] er) {
-        this.er = er;
-    }
-
-    public Distance getDistance() {
-        return distance;
-    }
-
-    public void setDistance(Distance distance) {
-        this.distance = distance;
-    }
-
+    
     @Override
     public Result call() throws Exception {
         return this.experiment();

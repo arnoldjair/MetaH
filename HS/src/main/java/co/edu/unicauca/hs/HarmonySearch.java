@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.edu.unicauca.hs.exception.DistanceException;
+import co.edu.unicauca.hs.model.GBHSExperimenter;
 import co.edu.unicauca.hs.model.JsonParams;
 import co.edu.unicauca.hs.model.Result;
 import co.edu.unicauca.hs.model.task.Task;

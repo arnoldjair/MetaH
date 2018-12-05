@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Random;
 
 import co.edu.unicauca.hs.model.JsonParams;
+import co.edu.unicauca.hs.model.hs.GBHS;
 import co.edu.unicauca.hs.model.objectivefunction.ObjectiveFunction;
 import co.edu.unicauca.hs.model.objectivefunction.ObjectiveFunctionFactory;
 
@@ -48,9 +49,11 @@ public class TaskBuilder {
 
 		for (String objectiveFunction : (List<String>) params.getParam("objectiveFunctions")) {
 			ObjectiveFunction currFunction = ObjectiveFunctionFactory.getObjectiveFuncion(objectiveFunction);
-			Task task = new Task(params.toInteger(params.getParam("hms")),params.toInteger(params.getParam("nIt")),
+			int hms, int maxImprovisations, double minPar, double maxPar, double hmcr, ObjectiveFunction function,
+			boolean log, Random random, int size, int nExp, long seed, GBHS algorithm;
+			Task task = new Task(params.toInteger(params.getParam("hms")),params.toInteger(params.getParam("maxImprovisations")),
 					(double) params.getParam("minPar"), (double) params.getParam("maxPar"),
-					(double) params.getParam("hmcr"), currFunction, log, new Random(), params.toInteger(params.getParam("size"))); 
+					(double) params.getParam("hmcr"), currFunction, log, params.toInteger(params.getParam("size")), params.toInteger(params.getParam("nExp"))); 
 			ret.add(task);
 		}
 

@@ -21,6 +21,7 @@ package co.edu.unicauca.hs.model.task;
 import java.util.Map;
 import java.util.Random;
 
+import co.edu.unicauca.hs.model.hs.GBHS;
 import co.edu.unicauca.hs.model.objectivefunction.ObjectiveFunction;
 
 /**
@@ -36,23 +37,25 @@ public class Task {
 	private double hmcr;
 	private ObjectiveFunction function;
 	private boolean log;
-	private Random random;
 	private int size;
 	private int nExp;
+	private long seed;
+	private GBHS algorithm;
 
-    public Task(int hms, int maxImprovisations, double minPar, double maxPar, double hmcr,
-    		ObjectiveFunction function, boolean log, Random random, int size, int nExp) {
-        this.hms = hms;
-        this.maxImprovisations = maxImprovisations;
-        this.minPar = minPar;
-        this.maxPar = maxPar;
-        this.hmcr = hmcr;
-        this.function = function;
-        this.log = log;
-        this.random = random;
-        this.size = size;
-        this.nExp = nExp;
-    }
+	public Task(int hms, int maxImprovisations, double minPar, double maxPar, double hmcr, ObjectiveFunction function,
+			boolean log, int size, int nExp, long seed, GBHS algorithm) {
+		this.hms = hms;
+		this.maxImprovisations = maxImprovisations;
+		this.minPar = minPar;
+		this.maxPar = maxPar;
+		this.hmcr = hmcr;
+		this.function = function;
+		this.log = log;
+		this.size = size;
+		this.nExp = nExp;
+		this.seed = seed;
+		this.algorithm = algorithm;
+	}
 
 	public int getHms() {
 		return hms;
@@ -110,14 +113,6 @@ public class Task {
 		this.log = log;
 	}
 
-	public Random getRandom() {
-		return random;
-	}
-
-	public void setRandom(Random random) {
-		this.random = random;
-	}
-
 	public int getSize() {
 		return size;
 	}
@@ -133,5 +128,22 @@ public class Task {
 	public void setnExp(int nExp) {
 		this.nExp = nExp;
 	}
+
+	public long getSeed() {
+		return seed;
+	}
+
+	public void setSeed(long seed) {
+		this.seed = seed;
+	}
+
+	public GBHS getAlgorithm() {
+		return algorithm;
+	}
+
+	public void setAlgorithm(GBHS algorithm) {
+		this.algorithm = algorithm;
+	}
+	
 	
 }
