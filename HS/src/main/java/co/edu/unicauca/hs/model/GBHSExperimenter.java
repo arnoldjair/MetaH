@@ -44,6 +44,8 @@ public class GBHSExperimenter implements Callable<Result>, Experimenter {
     private Record[] results;
     private boolean log;
     private int size;
+    private long seed;
+    private long parentId;
 
     public GBHSExperimenter(Task task) throws Exception {
         this.hms = task.getHms();
@@ -58,10 +60,12 @@ public class GBHSExperimenter implements Callable<Result>, Experimenter {
         } else {
             this.random = new Random();
         }
+        this.seed = task.getSeed();
         this.algorithm = task.getAlgorithm();
         this.results = new Record[nExp];
         this.log = task.isLog();
         this.size = task.getSize();
+        this.parentId = task.getId();
 
     }
     
@@ -195,18 +199,53 @@ public class GBHSExperimenter implements Callable<Result>, Experimenter {
 		this.log = log;
 	}
 
+	public int getSize() {
+		return size;
+	}
 
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public long getSeed() {
+		return seed;
+	}
+
+	public void setSeed(long seed) {
+		this.seed = seed;
+	}
+
+	public long getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(long parentId) {
+		this.parentId = parentId;
+	}
 
 	@Override
     public synchronized Result experiment() {
         Result ret = new Result();
+        double mean = 0;
         for (int i = 0; i < nExp; i++) {
             GBHS currAlgorithm = algorithm.newInstance();
-            Record cSolucion = currAlgorithm.process(hms, maxImprovisations, minPar, maxPar, hmcr, function, log, random, size);
+            Record cSolucion = currAlgorithm.process(hms, maxImprovisations, minPar, maxPar, hmcr, function, log, random, size, this.parentId + i);
             results[i] = cSolucion;
+            mean += cSolucion.getFitness();
         }
-
-        ret.setNumExperiments(nExp);
+        
+        mean /= nExp;
+    	
+        ret.setHms(this.hms);
+        ret.setMaxImprovisations(this.maxImprovisations);
+        ret.setMinPar(this.minPar);
+        ret.setMaxPar(this.maxPar);
+        ret.setHmcr(this.hmcr);
+        ret.setFunction(this.function.toString());
+        ret.setSize(this.size);
+        ret.setnExp(this.nExp);
+        ret.setSeed(this.seed);
+        ret.setMean(mean);
         return ret;
     }
 

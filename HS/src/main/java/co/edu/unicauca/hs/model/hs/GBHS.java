@@ -42,7 +42,7 @@ public interface GBHS {
 	 * @return
 	 */
     public Record process(int hms, int maxImprovisations, double minPar, double maxPar, double hmcr,
-    		ObjectiveFunction function, boolean log, Random random, int size);
+    		ObjectiveFunction function, boolean log, Random random, int size, long id);
 
     public GBHS newInstance();
 }

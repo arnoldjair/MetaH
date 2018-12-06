@@ -69,8 +69,11 @@ public class HarmonySearch {
         try {
 
             SimpleDateFormat dFormat = new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss");
-
             int maxT = 2;
+            if(params.getParam("threads") != null) {
+            	maxT = params.toInteger(params.getParam("threads"));
+            }
+            
             ExecutorService pool = Executors.newFixedThreadPool(maxT);
             List<Future<Result>> futureObjs = new ArrayList<Future<Result>>();
             List<Task> tasks = TaskBuilder.buildTasks(params);
@@ -90,15 +93,13 @@ public class HarmonySearch {
 
             StringBuilder sb = new StringBuilder();
             sb.append("date").append("\t")
-                    .append("objectiveFunction").append("\t")
-                    .append(params.getFields()).append("\n");
+                    .append(Result.getFields()).append("\n");
             report.writeLine(sb.toString());
             Date date = new Date();
             for (Result result : results) {
                 sb = new StringBuilder();
                 sb.append(dFormat.format(date)).append("\t")
-                        .append(result.toString()).append("\t")
-                        .append(params.toString()).append("\n");
+                        .append(result.toString()).append("\n");
                 report.writeLine(sb.toString());
             }
 

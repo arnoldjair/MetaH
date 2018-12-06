@@ -35,12 +35,12 @@ import java.util.logging.Logger;
  */
 public class GBHSUtils {
 
-    public List<Record> generateHarmonyMemory(int hms, ObjectiveFunction function, Random random, Comparator<Record> comparator) throws DistanceException, Exception {
+    public List<Record> generateHarmonyMemory(int hms, int size, ObjectiveFunction function, Random random, Comparator<Record> comparator) throws DistanceException, Exception {
         List<Record> harmonyMemory = new ArrayList<>();
 
         for (int i = 0; i < hms; i++) {
         	
-            Record tmp = Record.randomRecord(random, function.getMinValue(), function.getmaxValue(), hms);
+            Record tmp = Record.randomRecord(random, function.getMinValue(), function.getmaxValue(), size);
             double fitness = function.calculate(tmp);
 
             if (Double.isNaN(fitness)) {

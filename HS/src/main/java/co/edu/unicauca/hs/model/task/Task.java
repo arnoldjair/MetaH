@@ -41,9 +41,10 @@ public class Task {
 	private int nExp;
 	private long seed;
 	private GBHS algorithm;
+	private long id;
 
 	public Task(int hms, int maxImprovisations, double minPar, double maxPar, double hmcr, ObjectiveFunction function,
-			boolean log, int size, int nExp, long seed, GBHS algorithm) {
+			boolean log, int size, int nExp, long seed, GBHS algorithm, long id) {
 		this.hms = hms;
 		this.maxImprovisations = maxImprovisations;
 		this.minPar = minPar;
@@ -55,6 +56,7 @@ public class Task {
 		this.nExp = nExp;
 		this.seed = seed;
 		this.algorithm = algorithm;
+		this.id = id;
 	}
 
 	public int getHms() {
@@ -144,6 +146,13 @@ public class Task {
 	public void setAlgorithm(GBHS algorithm) {
 		this.algorithm = algorithm;
 	}
-	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 	
 }

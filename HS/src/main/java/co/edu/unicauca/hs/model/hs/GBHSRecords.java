@@ -18,12 +18,6 @@
  */
 package co.edu.unicauca.hs.model.hs;
 
-import co.edu.unicauca.hs.exception.DistanceException;
-import co.edu.unicauca.hs.model.Record;
-import co.edu.unicauca.hs.model.RecordComparator;
-import co.edu.unicauca.hs.model.objectivefunction.ObjectiveFunction;
-import co.edu.unicauca.hs.service.Config;
-import co.edu.unicauca.hs.utils.Report;
 import java.io.File;
 import java.util.Collections;
 import java.util.Comparator;
@@ -33,6 +27,12 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import co.edu.unicauca.hs.model.Record;
+import co.edu.unicauca.hs.model.RecordComparator;
+import co.edu.unicauca.hs.model.objectivefunction.ObjectiveFunction;
+import co.edu.unicauca.hs.service.Config;
+import co.edu.unicauca.hs.utils.Report;
+
 /**
  *
  * @author Arnold Jair Jimenez Vargas <ajjimenez@unicauca.edu.co>
@@ -41,14 +41,14 @@ public class GBHSRecords implements GBHS {
 
 	@Override
 	public synchronized Record process(int hms, int maxImprovisations, double minPar, double maxPar, double hmcr,
-			ObjectiveFunction function, boolean log, Random random, int size) {
+			ObjectiveFunction function, boolean log, Random random, int size, long id) {
 
 		try {
 			int repeated = 0;
 			int curHms;
 			int bad = 0;
 			File resultFolder = Config.getInstance().getResultFolder();
-			File resultado = new File(resultFolder, function.toString() + "_" + (new Date())+ ".txt");
+			File resultado = new File(resultFolder, function.toString() + "_" + (new Date()) + "_" + id + ".txt");
 			String logPath = resultado.getAbsolutePath();
 			Report report = new Report(logPath);
 			List<Record> harmonyMemory;
@@ -56,7 +56,7 @@ public class GBHSRecords implements GBHS {
 			GBHSUtils utils = new GBHSUtils();
 
 			Comparator<Record> recordComparator = new RecordComparator(function.minimizes());
-			harmonyMemory = utils.generateHarmonyMemory(hms, function, random, recordComparator);
+			harmonyMemory = utils.generateHarmonyMemory(hms, size, function, random, recordComparator);
 
 			curHms = harmonyMemory.size();
 

@@ -46,6 +46,8 @@ public class TaskBuilder {
 		if (params.getParam("log") != null) {
 			log = (boolean) params.getParam("log");
 		}
+		
+		long id = 1;
 
 		for (String objectiveFunction : (List<String>) params.getParam("objectiveFunctions")) {
 			ObjectiveFunction currFunction = ObjectiveFunctionFactory.getObjectiveFuncion(objectiveFunction);
@@ -57,7 +59,8 @@ public class TaskBuilder {
 			int size = params.toInteger(params.getParam("size"));
 			int nExp = params.toInteger(params.getParam("nExp"));
 			long seed = Math.round((double)params.getParam("seed"));
-			Task task = new Task(hms, maxImprovisations, minPar, maxPar, hmcr, currFunction, log, size, nExp, seed, new GBHSRecords());
+			Task task = new Task(hms, maxImprovisations, minPar, maxPar, hmcr, currFunction, log, size, nExp, seed, new GBHSRecords(), id);
+			id++;
 			ret.add(task);
 		}
 
