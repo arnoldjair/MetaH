@@ -29,7 +29,7 @@
                     <archive>
                         <manifest>
                             <mainClass>
-                                co.edu.unicauca.hs.HarmonySearch
+                                co.edu.unicauca.gbhs.HarmonySearch
                             </mainClass>
                         </manifest>
                     </archive>

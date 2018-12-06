@@ -1,13 +1,13 @@
 {
   "hms": 100,
-  "maxImprovisations": 1000,
+  "maxImprovisations": 5000,
   "minPar": 0.5,
   "maxPar": 1,
-  "hmcr": 0.95,
+  "hmcr": 0.8,
   "objectiveFunctions": ["ackley", "griewank", "powellSum", "rastrigin", "schwefel", "sphere"],
-  "log": true,
+  "log": false,
   "size": 20,
   "nExp": 30,
-  "seed": 10,
+  "seed": 200,
   "threads": 8
 }

@@ -1,17 +1,19 @@
-package co.edu.unicauca.hs.model.objectivefunction;
+package co.edu.unicauca.gbhs.model.objectivefunction;
 
 import java.util.Random;
 
-import co.edu.unicauca.hs.model.Record;
+import co.edu.unicauca.gbhs.model.Record;
 
-public class Ackley implements ObjectiveFunction {
+public class Schwefel implements ObjectiveFunction {
 
 	private double minValue;
 	private double maxValue;
+	private int evaluationCount;
 
-	public Ackley() {
-		this.minValue = -32.768;
-		this.maxValue = 32.768;
+	public Schwefel() {
+		this.minValue = -500;
+		this.maxValue = 500;
+		this.evaluationCount = 0;
 	}
 
 	@Override
@@ -22,26 +24,23 @@ public class Ackley implements ObjectiveFunction {
 	@Override
 	public double calculate(Record record) {
 		double ret = 0;
-
-		double sum_x = 0;
-		double sum_cos = 0;
+		double sum = 0;
 
 		int i = 0;
 
 		for (i = 0; i < record.getData().length; i++) {
-			sum_x = sum_x + Math.pow(record.getData()[i], 2);
-			sum_cos = sum_cos + Math.cos(2 * Math.PI * record.getData()[i]);
+			sum = sum + record.getData()[i] * Math.sin(Math.sqrt(Math.abs(record.getData()[i])));
 		}
 
-		ret = -20 * Math.exp(-0.2 * Math.sqrt(sum_x / record.getData().length))
-				- Math.exp(sum_cos / record.getData().length) + 20 + Math.exp(1);
+		ret = 418.9829 * record.getData().length - sum;
 
+		this.evaluationCount++;
 		return ret;
 	}
 
 	@Override
 	public ObjectiveFunction newInstance() {
-		return new Ackley();
+		return new Schwefel();
 	}
 
 	@Override
@@ -60,7 +59,11 @@ public class Ackley implements ObjectiveFunction {
 	}
 
 	public String toString() {
-		return "Ackley";
+		return "Rastrigin";
+	}
+
+	public int getEvaluationCount() {
+		return this.evaluationCount;
 	}
 
 }

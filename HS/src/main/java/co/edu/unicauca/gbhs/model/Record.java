@@ -16,27 +16,60 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package co.edu.unicauca.hs.model.objectivefunction;
+package co.edu.unicauca.gbhs.model;
 
 import java.util.Random;
-
-import co.edu.unicauca.hs.model.Record;
 
 /**
  *
  * @author Arnold Jair Jimenez Vargas <ajjimenez@unicauca.edu.co>
  */
-public interface ObjectiveFunction {
+public class Record {
 
-    public boolean minimizes();
+    private double[] data;
+    private double fitness;
 
-    public double calculate(Record record);
+    public double getFitness() {
+		return fitness;
+	}
 
-    public ObjectiveFunction newInstance();
+	public void setFitness(double fitness) {
+		this.fitness = fitness;
+	}
+
+	public Record() {
+    	
+    }
+
+	public double[] getData() {
+		return data;
+	}
+
+	public void setData(double[] data) {
+		this.data = data;
+	}
+	
+	public static Record randomRecord(Random random, double min, double max, int n) {
+		double[] data = new double[n];
+		for(int i = 0; i < n; i++) {
+			data[i] = min + random.nextDouble() * (max - min);
+		}
+		Record ret = new Record();
+		ret.setData(data);
+		return ret;
+	}
     
-    public double getMinValue();
-    
-    public double getmaxValue();
-    
-    public double getRandomValue(Random random);
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		for(int i = 0; i < this.data.length; i++) {
+			sb.append(this.data[i]);
+			if(i != this.data.length - 1) {
+				sb.append(",");
+			}
+		}
+		sb.append("]");
+		return sb.toString();
+	}
 }

@@ -16,33 +16,31 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package co.edu.unicauca.hs.model.hs;
-
-import co.edu.unicauca.hs.model.Record;
-import co.edu.unicauca.hs.model.objectivefunction.ObjectiveFunction;
-import java.util.Random;
+package co.edu.unicauca.gbhs.exception;
 
 /**
  *
  * @author Arnold Jair Jimenez Vargas <ajjimenez@unicauca.edu.co>
  */
-public interface GBHS {
+public class DistanceException extends Exception {
 
-	/**
-	 * 
-	 * @param hms
-	 * @param maxImprovisations
-	 * @param minPar
-	 * @param maxPar
-	 * @param hmcr
-	 * @param function
-	 * @param log
-	 * @param random
-	 * @param size
-	 * @return
-	 */
-    public Record process(int hms, int maxImprovisations, double minPar, double maxPar, double hmcr,
-    		ObjectiveFunction function, boolean log, Random random, int size, long id);
+    public DistanceException() {
+    }
 
-    public GBHS newInstance();
+    public DistanceException(String message) {
+        super(message);
+    }
+
+    public DistanceException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public DistanceException(Throwable cause) {
+        super(cause);
+    }
+
+    public DistanceException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
+
 }

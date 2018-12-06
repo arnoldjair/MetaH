@@ -16,7 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package co.edu.unicauca.hs.model.hs;
+package co.edu.unicauca.gbhs.model.hs;
 
 import java.io.File;
 import java.util.Collections;
@@ -27,11 +27,11 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import co.edu.unicauca.hs.model.Record;
-import co.edu.unicauca.hs.model.RecordComparator;
-import co.edu.unicauca.hs.model.objectivefunction.ObjectiveFunction;
-import co.edu.unicauca.hs.service.Config;
-import co.edu.unicauca.hs.utils.Report;
+import co.edu.unicauca.gbhs.model.Record;
+import co.edu.unicauca.gbhs.model.RecordComparator;
+import co.edu.unicauca.gbhs.model.objectivefunction.ObjectiveFunction;
+import co.edu.unicauca.gbhs.service.Config;
+import co.edu.unicauca.gbhs.utils.Report;
 
 /**
  *
@@ -44,9 +44,7 @@ public class GBHSRecords implements GBHS {
 			ObjectiveFunction function, boolean log, Random random, int size, long id) {
 
 		try {
-			int repeated = 0;
 			int curHms;
-			int bad = 0;
 			File resultFolder = Config.getInstance().getResultFolder();
 			File resultado = new File(resultFolder, function.toString() + "_" + (new Date()) + "_" + id + ".txt");
 			String logPath = resultado.getAbsolutePath();
@@ -64,7 +62,8 @@ public class GBHSRecords implements GBHS {
 				report.writeHarmonyMemory(harmonyMemory, "Initial Harmony Memory");
 			}
 
-			for (int cIt = 0; cIt < maxImprovisations; cIt++) {
+			int cIt = 0;
+			while(function.getEvaluationCount() < maxImprovisations) {
 				par = minPar + ((maxPar - minPar) / maxImprovisations) * cIt;
 				int n = size;
 				double[] newData = new double[n];
@@ -91,8 +90,8 @@ public class GBHSRecords implements GBHS {
 				if (curHms < hms) {
 					harmonyMemory.add(newSolution);
 					curHms++;
-				} else if (!utils.replaceSolution(harmonyMemory, newSolution, recordComparator)) {
-					bad++;
+				} else {
+					utils.replaceSolution(harmonyMemory, newSolution, recordComparator);
 				}
 
 				Collections.sort(harmonyMemory, recordComparator);
@@ -100,9 +99,10 @@ public class GBHSRecords implements GBHS {
 				if (log) {
 					report.writeHarmonyMemory(harmonyMemory, "Harmony Memory iteration " + cIt);
 				}
-
+				System.out.println(cIt);
+				cIt++;
 			}
-			
+
 			report.close();
 			return harmonyMemory.get(0);
 		} catch (Exception ex) {

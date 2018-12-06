@@ -16,7 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package co.edu.unicauca.hs.utils;
+package co.edu.unicauca.gbhs.utils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import co.edu.unicauca.hs.model.Record;
+import co.edu.unicauca.gbhs.model.Record;
 
 /**
  *

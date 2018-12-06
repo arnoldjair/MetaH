@@ -1,4 +1,4 @@
-package co.edu.unicauca.hs;
+package co.edu.unicauca.gbhs;
 
 import java.io.FileReader;
 import java.text.SimpleDateFormat;
@@ -18,14 +18,14 @@ import java.util.logging.Logger;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import co.edu.unicauca.hs.exception.DistanceException;
-import co.edu.unicauca.hs.model.GBHSExperimenter;
-import co.edu.unicauca.hs.model.JsonParams;
-import co.edu.unicauca.hs.model.Result;
-import co.edu.unicauca.hs.model.task.Task;
-import co.edu.unicauca.hs.service.Config;
-import co.edu.unicauca.hs.utils.Report;
-import co.edu.unicauca.hs.model.task.TaskBuilder;
+import co.edu.unicauca.gbhs.exception.DistanceException;
+import co.edu.unicauca.gbhs.model.GBHSExperimenter;
+import co.edu.unicauca.gbhs.model.JsonParams;
+import co.edu.unicauca.gbhs.model.Result;
+import co.edu.unicauca.gbhs.model.task.Task;
+import co.edu.unicauca.gbhs.service.Config;
+import co.edu.unicauca.gbhs.utils.Report;
+import co.edu.unicauca.gbhs.model.task.TaskBuilder;
 import gnu.getopt.Getopt;
 
 /**

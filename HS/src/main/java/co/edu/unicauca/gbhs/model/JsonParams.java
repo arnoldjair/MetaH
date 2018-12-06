@@ -16,7 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package co.edu.unicauca.hs.model;
+package co.edu.unicauca.gbhs.model;
 
 import java.util.HashMap;
 import java.util.List;

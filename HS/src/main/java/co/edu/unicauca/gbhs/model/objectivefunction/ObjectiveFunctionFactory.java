@@ -1,4 +1,4 @@
-package co.edu.unicauca.hs.model.objectivefunction;
+package co.edu.unicauca.gbhs.model.objectivefunction;
 
 /**
  *

@@ -1,17 +1,19 @@
-package co.edu.unicauca.hs.model.objectivefunction;
+package co.edu.unicauca.gbhs.model.objectivefunction;
 
 import java.util.Random;
 
-import co.edu.unicauca.hs.model.Record;
+import co.edu.unicauca.gbhs.model.Record;
 
-public class Griewank implements ObjectiveFunction {
+public class Rastrigin implements ObjectiveFunction {
 
 	private double minValue;
 	private double maxValue;
+	private int evaluationCount;
 
-	public Griewank() {
-		this.minValue = -600;
-		this.maxValue = 600;
+	public Rastrigin() {
+		this.minValue = -5.12;
+		this.maxValue = 5.12;
+		this.evaluationCount = 0;
 	}
 
 	@Override
@@ -22,25 +24,25 @@ public class Griewank implements ObjectiveFunction {
 	@Override
 	public double calculate(Record record) {
 		double ret = 0;
-		double sum_squares = 0;
-		double product = 1;
 
 		int i = 0;
 
+		double sum = 0;
+
 		for (i = 0; i < record.getData().length; i++) {
-			sum_squares = sum_squares + Math.pow(record.getData()[i], 2);
-			product = product * Math.cos(record.getData()[i] / Math.sqrt(i + 1));
+			sum = sum + Math.pow((double) record.getData()[i], 2)
+					- 10 * Math.cos(2 * Math.PI * (double) record.getData()[i]);
 		}
 
-		sum_squares = sum_squares / 4000;
-		ret = sum_squares - product + 1;
+		ret = 10 * record.getData().length + sum;
 
+		this.evaluationCount++;
 		return ret;
 	}
 
 	@Override
 	public ObjectiveFunction newInstance() {
-		return new Griewank();
+		return new Rastrigin();
 	}
 
 	@Override
@@ -59,7 +61,11 @@ public class Griewank implements ObjectiveFunction {
 	}
 
 	public String toString() {
-		return "Griewank";
+		return "Rastrigin";
+	}
+
+	public int getEvaluationCount() {
+		return this.evaluationCount;
 	}
 
 }

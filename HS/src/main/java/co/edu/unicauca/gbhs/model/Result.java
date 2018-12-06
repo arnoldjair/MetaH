@@ -1,4 +1,4 @@
-package co.edu.unicauca.hs.model;
+package co.edu.unicauca.gbhs.model;
 
 public class Result implements Comparable<Result> {
 

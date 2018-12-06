@@ -16,17 +16,17 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package co.edu.unicauca.hs.model.task;
+package co.edu.unicauca.gbhs.model.task;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import co.edu.unicauca.hs.model.JsonParams;
-import co.edu.unicauca.hs.model.hs.GBHS;
-import co.edu.unicauca.hs.model.hs.GBHSRecords;
-import co.edu.unicauca.hs.model.objectivefunction.ObjectiveFunction;
-import co.edu.unicauca.hs.model.objectivefunction.ObjectiveFunctionFactory;
+import co.edu.unicauca.gbhs.model.JsonParams;
+import co.edu.unicauca.gbhs.model.hs.GBHS;
+import co.edu.unicauca.gbhs.model.hs.GBHSRecords;
+import co.edu.unicauca.gbhs.model.objectivefunction.ObjectiveFunction;
+import co.edu.unicauca.gbhs.model.objectivefunction.ObjectiveFunctionFactory;
 
 /**
  *

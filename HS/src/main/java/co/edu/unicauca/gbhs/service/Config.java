@@ -1,4 +1,4 @@
-package co.edu.unicauca.hs.service;
+package co.edu.unicauca.gbhs.service;
 
 import java.io.File;
 import java.util.HashMap;

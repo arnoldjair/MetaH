@@ -16,60 +16,29 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package co.edu.unicauca.hs.model;
+package co.edu.unicauca.gbhs.model.objectivefunction;
 
 import java.util.Random;
+
+import co.edu.unicauca.gbhs.model.Record;
 
 /**
  *
  * @author Arnold Jair Jimenez Vargas <ajjimenez@unicauca.edu.co>
  */
-public class Record {
+public interface ObjectiveFunction {
 
-    private double[] data;
-    private double fitness;
+    public boolean minimizes();
 
-    public double getFitness() {
-		return fitness;
-	}
+    public double calculate(Record record);
 
-	public void setFitness(double fitness) {
-		this.fitness = fitness;
-	}
-
-	public Record() {
-    	
-    }
-
-	public double[] getData() {
-		return data;
-	}
-
-	public void setData(double[] data) {
-		this.data = data;
-	}
-	
-	public static Record randomRecord(Random random, double min, double max, int n) {
-		double[] data = new double[n];
-		for(int i = 0; i < n; i++) {
-			data[i] = min + random.nextDouble() * (max - min);
-		}
-		Record ret = new Record();
-		ret.setData(data);
-		return ret;
-	}
+    public ObjectiveFunction newInstance();
     
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("[");
-		for(int i = 0; i < this.data.length; i++) {
-			sb.append(this.data[i]);
-			if(i != this.data.length - 1) {
-				sb.append(",");
-			}
-		}
-		sb.append("]");
-		return sb.toString();
-	}
+    public double getMinValue();
+    
+    public double getmaxValue();
+    
+    public double getRandomValue(Random random);
+    
+    public int getEvaluationCount();
 }

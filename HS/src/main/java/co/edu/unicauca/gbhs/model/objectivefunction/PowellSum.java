@@ -1,17 +1,19 @@
-package co.edu.unicauca.hs.model.objectivefunction;
+package co.edu.unicauca.gbhs.model.objectivefunction;
 
 import java.util.Random;
 
-import co.edu.unicauca.hs.model.Record;
+import co.edu.unicauca.gbhs.model.Record;
 
-public class Sphere implements ObjectiveFunction {
-	
+public class PowellSum implements ObjectiveFunction {
+
 	private double minValue;
 	private double maxValue;
-	
-	public Sphere() {
-		this.minValue = -100;
-		this.maxValue = 100;
+	private int evaluationCount;
+
+	public PowellSum() {
+		this.minValue = -1;
+		this.maxValue = 1;
+		this.evaluationCount = 0;
 	}
 
 	@Override
@@ -22,15 +24,18 @@ public class Sphere implements ObjectiveFunction {
 	@Override
 	public double calculate(Record record) {
 		double ret = 0;
-		  for (int i = 0; i < record.getData().length; ++i) {
-		    ret += Math.pow(record.getData()[i], 2);
-		  }
-		  return Math.sqrt(ret);
+
+		for (int i = 0; i < record.getData().length; ++i) {
+			ret += Math.pow(Math.abs(record.getData()[i]), i + 2);
+		}
+
+		this.evaluationCount++;
+		return ret;
 	}
 
 	@Override
 	public ObjectiveFunction newInstance() {
-		return new Sphere();
+		return new PowellSum();
 	}
 
 	@Override
@@ -47,9 +52,13 @@ public class Sphere implements ObjectiveFunction {
 	public double getRandomValue(Random random) {
 		return minValue + random.nextDouble() * (maxValue - minValue);
 	}
-	
+
 	public String toString() {
-		return "Sphere";
+		return "PowellSum";
+	}
+	
+	public int getEvaluationCount() {
+		return this.evaluationCount;
 	}
 
 }

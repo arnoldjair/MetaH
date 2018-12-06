@@ -1,17 +1,19 @@
-package co.edu.unicauca.hs.model.objectivefunction;
+package co.edu.unicauca.gbhs.model.objectivefunction;
 
 import java.util.Random;
 
-import co.edu.unicauca.hs.model.Record;
+import co.edu.unicauca.gbhs.model.Record;
 
-public class Rastrigin implements ObjectiveFunction {
+public class Sphere implements ObjectiveFunction {
 
 	private double minValue;
 	private double maxValue;
+	private int evaluationCount;
 
-	public Rastrigin() {
-		this.minValue = -5.12;
-		this.maxValue = 5.12;
+	public Sphere() {
+		this.minValue = -100;
+		this.maxValue = 100;
+		this.evaluationCount = 0;
 	}
 
 	@Override
@@ -22,24 +24,17 @@ public class Rastrigin implements ObjectiveFunction {
 	@Override
 	public double calculate(Record record) {
 		double ret = 0;
-
-		int i = 0;
-
-		double sum = 0;
-
-		for (i = 0; i < record.getData().length; i++) {
-			sum = sum + Math.pow((double) record.getData()[i], 2)
-					- 10 * Math.cos(2 * Math.PI * (double) record.getData()[i]);
+		for (int i = 0; i < record.getData().length; ++i) {
+			ret += Math.pow(record.getData()[i], 2);
 		}
-
-		ret = 10 * record.getData().length + sum;
-
-		return ret;
+		
+		this.evaluationCount++;
+		return Math.sqrt(ret);
 	}
 
 	@Override
 	public ObjectiveFunction newInstance() {
-		return new Rastrigin();
+		return new Sphere();
 	}
 
 	@Override
@@ -58,7 +53,11 @@ public class Rastrigin implements ObjectiveFunction {
 	}
 
 	public String toString() {
-		return "Rastrigin";
+		return "Sphere";
+	}
+	
+	public int getEvaluationCount() {
+		return this.evaluationCount;
 	}
 
 }
