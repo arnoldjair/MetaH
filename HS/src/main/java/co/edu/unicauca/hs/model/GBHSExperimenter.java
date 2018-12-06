@@ -200,7 +200,6 @@ public class GBHSExperimenter implements Callable<Result>, Experimenter {
 	@Override
     public synchronized Result experiment() {
         Result ret = new Result();
-
         for (int i = 0; i < nExp; i++) {
             GBHS currAlgorithm = algorithm.newInstance();
             Record cSolucion = currAlgorithm.process(hms, maxImprovisations, minPar, maxPar, hmcr, function, log, random, size);

@@ -18,6 +18,8 @@
  */
 package co.edu.unicauca.hs.model.objectivefunction;
 
+import java.util.Random;
+
 import co.edu.unicauca.hs.model.Record;
 
 /**
@@ -36,5 +38,5 @@ public interface ObjectiveFunction {
     
     public double getmaxValue();
     
-    public double getRandomValue();
+    public double getRandomValue(Random random);
 }

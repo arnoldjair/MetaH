@@ -52,13 +52,14 @@ public class GBHSUtils {
                 continue;
             }
             tmp.setFitness(fitness);
+            harmonyMemory.add(tmp);
         }
         Collections.sort(harmonyMemory, comparator);
         return harmonyMemory;
     }
     
     public boolean repeatedSolution(Record newSolution,
-            Comparator recordComparator, List<Record> harmonyMemory) {
+            Comparator<Record> recordComparator, List<Record> harmonyMemory) {
 
         int hms = harmonyMemory.size();
         for (int i = 0; i < hms; i++) {
@@ -72,41 +73,13 @@ public class GBHSUtils {
         return false;
     }
 
-    public boolean replaceSolution(List<Record> ma, Record ns, Comparator c) {
+    public boolean replaceSolution(List<Record> ma, Record ns, Comparator<Record> c) {
         int hms = ma.size();
         if (c.compare(ns, ma.get(hms - 1)) == -1) {
             ma.set(hms - 1, ns);
             return true;
         }
         return false;
-    }
-
-    public boolean uniformMemory(List<Record> harmonyMemory) {
-        int hms = harmonyMemory.size();
-        double mean = 0;
-        double deviation = 0;
-        for (Record Record : harmonyMemory) {
-            mean += Record.getFitness();
-        }
-        mean /= hms;
-        for (Record Record : harmonyMemory) {
-            deviation += Math.pow(Record.getFitness() - mean, 2);
-        }
-        deviation /= (hms - 1);
-        deviation = Math.sqrt(deviation);
-        return deviation <= 0.05 * mean;
-    }
-
-    public List<Record> regenerateMemory(List<Record> records, int maxIt, ObjectiveFunction function, Comparator<Record> recordComparator,
-            Random random) throws DistanceException, Exception {
-        int hms = records.size();
-        List<Record> ret = generateHarmonyMemory(hms - 2, function, random, recordComparator);
-
-        ret.add(records.get(0));
-        ret.add(records.get(1));
-
-        Collections.sort(ret, recordComparator);
-        return ret;
     }
 
 }

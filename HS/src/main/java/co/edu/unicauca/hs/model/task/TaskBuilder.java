@@ -24,6 +24,7 @@ import java.util.Random;
 
 import co.edu.unicauca.hs.model.JsonParams;
 import co.edu.unicauca.hs.model.hs.GBHS;
+import co.edu.unicauca.hs.model.hs.GBHSRecords;
 import co.edu.unicauca.hs.model.objectivefunction.ObjectiveFunction;
 import co.edu.unicauca.hs.model.objectivefunction.ObjectiveFunctionFactory;
 
@@ -38,7 +39,6 @@ public class TaskBuilder {
 			return null;
 		}
 
-		boolean fixedK = false;
 		boolean log = false;
 
 		List<Task> ret = new ArrayList<>();
@@ -49,11 +49,15 @@ public class TaskBuilder {
 
 		for (String objectiveFunction : (List<String>) params.getParam("objectiveFunctions")) {
 			ObjectiveFunction currFunction = ObjectiveFunctionFactory.getObjectiveFuncion(objectiveFunction);
-			int hms, int maxImprovisations, double minPar, double maxPar, double hmcr, ObjectiveFunction function,
-			boolean log, Random random, int size, int nExp, long seed, GBHS algorithm;
-			Task task = new Task(params.toInteger(params.getParam("hms")),params.toInteger(params.getParam("maxImprovisations")),
-					(double) params.getParam("minPar"), (double) params.getParam("maxPar"),
-					(double) params.getParam("hmcr"), currFunction, log, params.toInteger(params.getParam("size")), params.toInteger(params.getParam("nExp"))); 
+			int hms = params.toInteger(params.getParam("hms"));
+			int maxImprovisations = params.toInteger(params.getParam("maxImprovisations"));
+			double minPar = (double) params.getParam("minPar"); 
+			double maxPar = (double) params.getParam("maxPar");
+			double hmcr = (double) params.getParam("hmcr"); 
+			int size = params.toInteger(params.getParam("size"));
+			int nExp = params.toInteger(params.getParam("nExp"));
+			long seed = Math.round((double)params.getParam("seed"));
+			Task task = new Task(hms, maxImprovisations, minPar, maxPar, hmcr, currFunction, log, size, nExp, seed, new GBHSRecords());
 			ret.add(task);
 		}
 

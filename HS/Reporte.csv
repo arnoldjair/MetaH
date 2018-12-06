@@ -1,0 +1,244 @@
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:34:31	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	30.0	22.0	
+tiempo	5140	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:36:01	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	30.0	22.0	
+tiempo	7952	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:36:01	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	30.0	22.0	
+tiempo	7674	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:38:30	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	30.0	22.0	
+tiempo	6657	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:44:22	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	30.0	22.0	
+tiempo	6551	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:44:40	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	30.0	22.0	
+tiempo	6433	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:46:26	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	30.0	22.0	
+tiempo	6445	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:49:07	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	30.0	22.0	
+tiempo	6243	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:49:58	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	2.0	22.0	
+tiempo	575	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:53:01	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	2.0	22.0	
+tiempo	564	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:53:17	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	3.0	22.0	
+tiempo	781	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:53:35	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	6.0	22.0	
+tiempo	1424	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:55:35	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	6.0	22.0	
+tiempo	998	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_17:58:34	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	6.0	22.0	
+tiempo	924	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:12:45	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	3.0	6.0	22.0	
+05-12-2018_18:12:45	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	3.0	6.0	22.0	
+tiempo	1237	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:13:13	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	3.0	6.0	22.0	
+05-12-2018_18:13:13	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	3.0	6.0	22.0	
+tiempo	1234	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:16:37	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	3.0	6.0	22.0	
+05-12-2018_18:16:37	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	3.0	6.0	22.0	
+tiempo	1202	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:17:08	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere]	3.0	6.0	22.0	
+tiempo	937	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:17:28	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[ackley]	3.0	6.0	22.0	
+tiempo	937	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:17:59	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	6.0	22.0	
+05-12-2018_18:17:59	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	6.0	22.0	
+tiempo	1252	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:18:54	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:18:54	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1086	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:19:00	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:19:00	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1064	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:19:12	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	2.0	22.0	
+05-12-2018_18:19:12	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	2.0	22.0	
+tiempo	543	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:19:34	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+05-12-2018_18:19:34	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+tiempo	724	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:19:58	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+05-12-2018_18:19:58	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+tiempo	739	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:22:01	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	3.0	6.0	22.0	
+05-12-2018_18:22:01	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	3.0	6.0	22.0	
+tiempo	435825	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:22:13	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+05-12-2018_18:22:13	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+tiempo	1058	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:22:17	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+05-12-2018_18:22:17	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+tiempo	1072	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:22:50	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+05-12-2018_18:22:50	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+tiempo	23459	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:26:23	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+05-12-2018_18:26:23	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+tiempo	94248	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:26:56	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+05-12-2018_18:26:56	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+tiempo	929	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:27:03	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+05-12-2018_18:27:03	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+tiempo	927	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:27:38	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+05-12-2018_18:27:38	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+tiempo	969	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:27:43	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+05-12-2018_18:27:43	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+tiempo	940	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:35:16	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+05-12-2018_18:35:16	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	3.0	22.0	
+tiempo	718	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:36:40	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:36:40	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1061	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:36:47	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:36:47	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1047	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:37:39	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:37:39	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1038	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:38:13	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:38:13	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1100	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:39:32	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:39:32	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1076	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:39:56	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:39:56	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1044	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:41:44	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:41:44	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1181	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:41:49	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:41:49	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1075	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:46:01	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:46:01	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1647	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:47:00	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:47:00	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	6247	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:53:40	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:53:40	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	6103	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:55:07	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:55:07	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1073	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:55:12	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:55:12	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1045	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:55:48	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+05-12-2018_18:55:48	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	5.0	22.0	
+tiempo	1077	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:56:55	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	10.0	22.0	
+05-12-2018_18:56:55	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	10.0	22.0	
+tiempo	22071	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:57:41	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	10.0	22.0	
+05-12-2018_18:57:41	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	10.0	22.0	
+tiempo	1921	milis
+
+date	objectiveFunction	maxPar	minPar	hmcr	size	seed	log	maxImprovisations	objectiveFunctions	threads	nExp	hms	
+05-12-2018_18:57:47	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	10.0	22.0	
+05-12-2018_18:57:47	null	0.75	0.52	0.5	2.0	10.0	true	1000.0	[sphere, ackley]	1.0	10.0	22.0	
+tiempo	1931	milis
+

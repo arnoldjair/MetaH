@@ -59,7 +59,8 @@ public class HarmonySearch {
             }
     	}
     	
-    	Config.getInstance().initResultFolder();    	
+    	Config.getInstance().initResultFolder();    
+    	experiment(params);
     }
     
     public static void experiment(JsonParams params) throws Exception {
@@ -69,7 +70,7 @@ public class HarmonySearch {
 
             SimpleDateFormat dFormat = new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss");
 
-            int maxT = 4;
+            int maxT = 2;
             ExecutorService pool = Executors.newFixedThreadPool(maxT);
             List<Future<Result>> futureObjs = new ArrayList<Future<Result>>();
             List<Task> tasks = TaskBuilder.buildTasks(params);
@@ -89,14 +90,7 @@ public class HarmonySearch {
 
             StringBuilder sb = new StringBuilder();
             sb.append("date").append("\t")
-                    .append("averageIcc").append("\t")
-                    .append("averageIic").append("\t")
-                    .append("averageEr").append("\t")
-                    .append("standardDeviation").append("\t")
-                    .append("dataset").append("\t")
                     .append("objectiveFunction").append("\t")
-                    .append("distance").append("\t")
-                    .append("algorithm").append("\t")
                     .append(params.getFields()).append("\n");
             report.writeLine(sb.toString());
             Date date = new Date();
@@ -108,7 +102,7 @@ public class HarmonySearch {
                 report.writeLine(sb.toString());
             }
 
-        } catch (InterruptedException | ExecutionException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(HarmonySearch.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             milis = System.currentTimeMillis() - milis;

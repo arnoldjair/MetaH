@@ -57,8 +57,9 @@ public class JsonParams {
         ret = ret && (double) getParam("hmcr") > 0;
         ret = ret && toInteger(getParam("hms")) > 0;
         ret = ret && toInteger(getParam("nExp")) > 0;
-        ret = ret && toInteger(getParam("nIt")) > 0;
+        ret = ret && toInteger(getParam("maxImprovisations")) > 0;
         ret = ret && toInteger(getParam("threads")) > 0;
+        ret = ret && (double) getParam("seed") > 0;
         ret = ret && ((List<String>) getParam("objectiveFunctions")).size() > 0;
 
         return ret;

@@ -73,7 +73,7 @@ public class Report {
             writeLine("\n");
             for (Record record: records) {
                 writeLine("f: " + record.getFitness() + " ");
-                writeLine(record.getData().toString());
+                //writeLine(record.toString());
                 writeLine("\n");
             }
         }

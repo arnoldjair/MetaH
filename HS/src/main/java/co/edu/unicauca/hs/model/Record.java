@@ -59,4 +59,17 @@ public class Record {
 		return ret;
 	}
     
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		for(int i = 0; i < this.data.length; i++) {
+			sb.append(this.data[i]);
+			if(i != this.data.length - 1) {
+				sb.append(",");
+			}
+		}
+		sb.append("]");
+		return sb.toString();
+	}
 }

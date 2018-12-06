@@ -9,7 +9,9 @@ public class ObjectiveFunctionFactory {
 	public static ObjectiveFunction getObjectiveFuncion(String function) {
 		switch (function) {
 		case "sphere":
-			return null;
+			return new Sphere();
+		case "ackley":
+			return new Ackley();
 		}
 		return null;
 	}

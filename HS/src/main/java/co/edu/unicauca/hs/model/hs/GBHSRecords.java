@@ -39,115 +39,86 @@ import java.util.logging.Logger;
  */
 public class GBHSRecords implements GBHS {
 
-    @Override
-    public synchronized Record process(int hms, int maxImprovisations, double minPar, double maxPar, double hmcr,
-    		ObjectiveFunction function, boolean log, Random random, int size) {
+	@Override
+	public synchronized Record process(int hms, int maxImprovisations, double minPar, double maxPar, double hmcr,
+			ObjectiveFunction function, boolean log, Random random, int size) {
 
-        try {
-            int repeated = 0;
-            int curHms;
-            int bad = 0;
-            File resultFolder = Config.getInstance().getResultFolder();
-            File resultado = new File(resultFolder, function.toString() + (new Date()).toString() + ".txt");
-            String logPath = resultado.getAbsolutePath();
-            Report report = new Report(logPath);
-            List<Record> harmonyMemory;
-            double par;
-            GBHSUtils utils = new GBHSUtils();
+		try {
+			int repeated = 0;
+			int curHms;
+			int bad = 0;
+			File resultFolder = Config.getInstance().getResultFolder();
+			File resultado = new File(resultFolder, function.toString() + "_" + (new Date())+ ".txt");
+			String logPath = resultado.getAbsolutePath();
+			Report report = new Report(logPath);
+			List<Record> harmonyMemory;
+			double par;
+			GBHSUtils utils = new GBHSUtils();
 
-            Comparator<Record> recordComparator = new RecordComparator(function.minimizes());
-            harmonyMemory = utils.generateHarmonyMemory(hms, function, random, recordComparator);
+			Comparator<Record> recordComparator = new RecordComparator(function.minimizes());
+			harmonyMemory = utils.generateHarmonyMemory(hms, function, random, recordComparator);
 
-            curHms = harmonyMemory.size();
+			curHms = harmonyMemory.size();
 
-            if (log) {
-                report.writeHarmonyMemory(harmonyMemory, "Initial Harmony Memory");
-            }
+			if (log) {
+				report.writeHarmonyMemory(harmonyMemory, "Initial Harmony Memory");
+			}
 
-            int regenerated = 0;
+			for (int cIt = 0; cIt < maxImprovisations; cIt++) {
+				par = minPar + ((maxPar - minPar) / maxImprovisations) * cIt;
+				int n = size;
+				double[] newData = new double[n];
+				Record newSolution = new Record();
 
-            int k;
+				for (int i = 0; i < n; i++) {
+					double num = random.nextDouble();
+					if (num <= hmcr) {
+						int pos = random.nextInt(curHms);
+						newData[i] = harmonyMemory.get(pos).getData()[i];
 
-            for (int cIt = 0; cIt < maxImprovisations; cIt++) {
-                par = minPar + ((maxPar - minPar) / maxImprovisations) * cIt;
-                int n = size;
-                double[] newData = new double[n];
-                Record newSolution = new Record();
+						if (random.nextDouble() < par) {
+							newData[i] = harmonyMemory.get(pos).getData()[random.nextInt(n)];
+						}
+					} else {
+						newData[i] = function.getRandomValue(random);
+					}
+				}
 
-                for (int i = 0; i < n; i++) {
-                    double num = random.nextDouble();
-                    if (num <= hmcr) {
-                        int pos = random.nextInt(curHms);
-                        newData[i] = harmonyMemory.get(pos).getData()[i];
+				newSolution.setData(newData);
 
-                        if (random.nextDouble() < par) {
-                            newData[i] = harmonyMemory.get(pos).getData()[random.nextInt(curHms)];
-                        }
-                    } else {
-                        newData[i] = function.getRandomValue();
-                    }
-                }
+				newSolution.setFitness(function.calculate(newSolution));
 
-                newSolution.setData(newData);
+				if (curHms < hms) {
+					harmonyMemory.add(newSolution);
+					curHms++;
+				} else if (!utils.replaceSolution(harmonyMemory, newSolution, recordComparator)) {
+					bad++;
+				}
 
-                newSolution.setFitness(function.calculate(newSolution));
-                
-                if (utils.repeatedSolution(newSolution, recordComparator, harmonyMemory)) {
-                    repeated++;
-                } else {
+				Collections.sort(harmonyMemory, recordComparator);
 
-                    if (curHms < hms) {
-                        harmonyMemory.add(newSolution);
-                        curHms++;
-                    } else if (!utils.replaceSolution(harmonyMemory, newSolution, recordComparator)) {
-                        bad++;
-                    }
+				if (log) {
+					report.writeHarmonyMemory(harmonyMemory, "Harmony Memory iteration " + cIt);
+				}
 
-                    Collections.sort(harmonyMemory, recordComparator);
+			}
+			
+			report.close();
+			return harmonyMemory.get(0);
+		} catch (Exception ex) {
+			Logger.getLogger(GBHSRecords.class.getName()).log(Level.SEVERE, null, ex);
+			return null;
+		}
+	}
 
-                    if (utils.uniformMemory(harmonyMemory)) {
-                        harmonyMemory = utils.regenerateMemory(harmonyMemory,
-                                maxImprovisations, function,
-                                recordComparator, random);
-                        regenerated++;
-                        curHms = harmonyMemory.size();
-                    }
-                }
+	@Override
+	public GBHS newInstance() {
+		return new GBHSRecords();
+	}
 
-                if (log) {
-                    report.writeHarmonyMemory(harmonyMemory, "Harmony Memory iteration " + cIt);
-                }
-
-                if (regenerated > 10) {
-                    break;
-                }
-            }
-            if (log) {
-                for (Record record: harmonyMemory) {
-                    report.writeLine(record.toString());
-                }
-            }
-            System.out.println("Repetidos: " + repeated);
-            System.out.println("malos: " + bad);
-            report.close();
-            return harmonyMemory.get(0);
-        } catch (DistanceException ex) {
-            Logger.getLogger(GBHSRecords.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        } catch (Exception ex) {
-            Logger.getLogger(GBHSRecords.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }
-    }
-
-    @Override
-    public GBHS newInstance() {
-        return new GBHSRecords();
-    }
-
-    @Override
-    public String toString() {
-        return "Records";
-    }
+	@Override
+	public String toString() {
+		return "Records";
+	}
 
 }
