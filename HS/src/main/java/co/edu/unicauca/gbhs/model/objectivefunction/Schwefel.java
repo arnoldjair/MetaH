@@ -59,7 +59,7 @@ public class Schwefel implements ObjectiveFunction {
 	}
 
 	public String toString() {
-		return "Rastrigin";
+		return "Schwefel";
 	}
 
 	public int getEvaluationCount() {

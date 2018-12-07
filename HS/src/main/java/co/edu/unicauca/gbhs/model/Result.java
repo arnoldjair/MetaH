@@ -111,19 +111,19 @@ public class Result implements Comparable<Result> {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(this.hms).append("\t").append(this.maxImprovisations).append("\t").append(this.minPar).append("\t")
-				.append(this.maxPar).append("\t").append(this.hmcr).append("\t").append(this.function).append("\t")
-				.append(this.size).append("\t").append(this.nExp).append("\t").append(this.seed).append("\t").append(this.mean)
-				.append("\t");
+		sb.append(this.hms).append(";").append(this.maxImprovisations).append(";").append(this.minPar).append(";")
+				.append(this.maxPar).append(";").append(this.hmcr).append(";").append(this.function).append(";")
+				.append(this.size).append(";").append(this.nExp).append(";").append(this.seed).append(";").append(this.mean)
+				.append(";");
 		return sb.toString();
 	}
 
 	public static String getFields() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("hms").append("\t").append("maxImprovisations").append("\t").append("minPar").append("\t")
-				.append("maxPar").append("\t").append("hmcr").append("\t").append("function").append("\t")
-				.append("size").append("\t").append("nExp").append("\t").append("seed").append("\t").append("mean")
-				.append("\t");
+		sb.append("hms").append(";").append("maxImprovisations").append(";").append("minPar").append(";")
+				.append("maxPar").append(";").append("hmcr").append(";").append("function").append(";")
+				.append("size").append(";").append("nExp").append(";").append("seed").append(";").append("mean")
+				.append(";");
 		return sb.toString();
 	}
 

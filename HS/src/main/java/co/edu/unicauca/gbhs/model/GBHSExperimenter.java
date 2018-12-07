@@ -229,7 +229,7 @@ public class GBHSExperimenter implements Callable<Result>, Experimenter {
         double mean = 0;
         for (int i = 0; i < nExp; i++) {
             GBHS currAlgorithm = algorithm.newInstance();
-            Record cSolucion = currAlgorithm.process(hms, maxImprovisations, minPar, maxPar, hmcr, function, log, random, size, this.parentId + i);
+            Record cSolucion = currAlgorithm.process(hms, maxImprovisations, minPar, maxPar, hmcr, function.newInstance(), log, random, size, this.parentId + i);
             results[i] = cSolucion;
             mean += cSolucion.getFitness();
         }

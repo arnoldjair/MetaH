@@ -99,7 +99,6 @@ public class GBHSRecords implements GBHS {
 				if (log) {
 					report.writeHarmonyMemory(harmonyMemory, "Harmony Memory iteration " + cIt);
 				}
-				System.out.println(cIt);
 				cIt++;
 			}
 
